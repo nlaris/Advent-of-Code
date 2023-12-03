@@ -27,7 +27,7 @@ public class Day3 {
             String row = engine.get(i);
             for (int j = 0; j < row.length(); j++) {
                 char c = row.charAt(j);
-                if (isSymbol(c)) {
+                if (!Character.isLetterOrDigit(c) && c != '.') {
                     sum += getSurroundingNumbers(i, j).stream().mapToInt(Integer::intValue).sum();
                 }
             }
@@ -93,9 +93,5 @@ public class Day3 {
         return i >= 0 && i < engine.size() &&
                 j >= 0 && j < engine.get(0).length() &&
                 Character.isDigit(engine.get(i).charAt(j));
-    }
-
-    private static boolean isSymbol(char c) {
-        return !Character.isLetterOrDigit(c) && c != '.';
     }
 }
