@@ -32,8 +32,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nick\Documents\git\AoC\2023" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Day2">
     <configuration name="Day 1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Day1" />
       <module name="2023" />
@@ -41,6 +47,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Day2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day2" />
+      <module name="2023" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Day 1" />
+      <item itemvalue="Application.Day2" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Day2" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
