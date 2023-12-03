@@ -58,34 +58,26 @@ public class Day3 {
     private static ArrayList<Integer> getSurroundingNumbers(int i, int j) {
         final ArrayList<Integer> numbers = new ArrayList<>();
         if (isValidNumber(i - 1, j)) {
-            numbers.add(getRestOfNumber(i - 1, j, true, true));
+            numbers.add(getRestOfNumber(i - 1, j));
         } else {
-            if (isValidNumber(i - 1, j - 1)) numbers.add(getRestOfNumber(i - 1, j - 1, true, false));
-            if (isValidNumber(i - 1, j + 1)) numbers.add(getRestOfNumber(i - 1, j + 1, false, true));
+            if (isValidNumber(i - 1, j - 1)) numbers.add(getRestOfNumber(i - 1, j - 1));
+            if (isValidNumber(i - 1, j + 1)) numbers.add(getRestOfNumber(i - 1, j + 1));
         }
         if (isValidNumber(i + 1, j)) {
-            numbers.add(getRestOfNumber(i + 1, j, true, true));
+            numbers.add(getRestOfNumber(i + 1, j));
         } else {
-            if (isValidNumber(i + 1, j - 1)) numbers.add(getRestOfNumber(i + 1, j - 1, true, false));
-            if (isValidNumber(i + 1, j + 1)) numbers.add(getRestOfNumber(i + 1, j + 1, false, true));
+            if (isValidNumber(i + 1, j - 1)) numbers.add(getRestOfNumber(i + 1, j - 1));
+            if (isValidNumber(i + 1, j + 1)) numbers.add(getRestOfNumber(i + 1, j + 1));
         }
-        if (isValidNumber(i, j - 1)) numbers.add(getRestOfNumber(i, j - 1, true, false));
-        if (isValidNumber(i, j + 1)) numbers.add(getRestOfNumber(i, j + 1, false, true));
+        if (isValidNumber(i, j - 1)) numbers.add(getRestOfNumber(i, j - 1));
+        if (isValidNumber(i, j + 1)) numbers.add(getRestOfNumber(i, j + 1));
         return numbers;
     }
 
-    private static int getRestOfNumber(int i, int j, boolean left, boolean right) {
+    private static int getRestOfNumber(int i, int j) {
         int start = j, end = j;
-        if (left) {
-            while (isValidNumber(i, start - 1)) {
-                start--;
-            }
-        }
-        if (right) {
-            while (isValidNumber(i, end + 1)) {
-                end++;
-            }
-        }
+        while (isValidNumber(i, start - 1)) start--;
+        while (isValidNumber(i, end + 1)) end++;
         return Integer.parseInt(engine.get(i).substring(start, end + 1));
     }
 
