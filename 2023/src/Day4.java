@@ -28,10 +28,10 @@ public class Day4 {
     private static int calculatePoints(String line) {
         String[] ticket = line.split("\\|");
         String[] ticketInfo = ticket[0].split(":");
-        int gameNumber = Integer.parseInt(ticketInfo[0].replace("Card", "").trim());
-        ticketCount.compute(gameNumber, (k, v) -> v == null ? 1 : v + 1);
         List<Integer> winningNumbers = getNumbers(Arrays.stream(ticketInfo[1].split(" ")));
         List<Integer> myWinningNumbers = getNumbers(Arrays.stream(ticket[1].split(" "))).stream().filter(winningNumbers::contains).toList();
+        int gameNumber = Integer.parseInt(ticketInfo[0].replace("Card", "").trim());
+        ticketCount.compute(gameNumber, (k, v) -> v == null ? 1 : v + 1);
         for (int i = 1; i <= myWinningNumbers.size(); i++) {
             ticketCount.compute(gameNumber + i, (k, v) -> v == null ? ticketCount.get(gameNumber) : v + ticketCount.get(gameNumber));
         }
