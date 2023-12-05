@@ -9,26 +9,23 @@ public class Day5 {
 
     private static List<Long> seeds = new ArrayList<>();
 
-    private static ArrayList<RangeMapping> seedToSoil = new ArrayList<>();
-    private static ArrayList<RangeMapping> soilToFertilizer = new ArrayList<>();
-    private static ArrayList<RangeMapping> fertilizerToWater = new ArrayList<>();
-    private static ArrayList<RangeMapping> waterToLight = new ArrayList<>();
-    private static ArrayList<RangeMapping> lightToTemperature = new ArrayList<>();
-    private static ArrayList<RangeMapping> temperatureToHumidity = new ArrayList<>();
-    private static ArrayList<RangeMapping> humidityToLocation = new ArrayList<>();
+    private static ArrayList<ArrayList<RangeMapping>> mappings = new ArrayList<>();
 
     private static Long locationPart1 = null;
     private static Long locationPart2 = null;
+
+    private static int mappingIndex = 0;
 
     public static void main(String[] args) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(INPUT_FILE))) {
             String line = br.readLine();
             seeds = Arrays.stream(line.split(":")[1].trim().split(" ")).mapToLong(Long::parseLong).boxed().toList();
             br.readLine(); br.readLine(); line = br.readLine();
-            ArrayList<RangeMapping> currentMap = seedToSoil;
+            ArrayList<RangeMapping> currentMap = new ArrayList<>();
             while (line != null) {
                 if (line.isEmpty()) {
-                    currentMap = getNextMapping(currentMap, false);
+                    mappings.add(currentMap);
+                    currentMap = new ArrayList<>();
                     br.readLine();
                 } else {
                     RangeMapping rangeMapping = new RangeMapping(Arrays.stream(line.split(" ")).mapToLong(Long::parseLong).toArray());
@@ -36,10 +33,12 @@ public class Day5 {
                 }
                 line = br.readLine();
             }
+            mappings.add(currentMap);
         }
         long location = 0;
         while (locationPart1 == null || locationPart2 == null) {
-            findSeedNumbers(location, humidityToLocation, location);
+            mappingIndex = mappings.size() - 1;
+            findSeedNumbers(location, mappings.get(mappingIndex), location);
             location++;
         }
         System.out.println("Part 1: " + locationPart1);
@@ -48,12 +47,12 @@ public class Day5 {
 
     private static void findSeedNumbers(long destVal, ArrayList<RangeMapping> mapping, long location) {
         long sourceVal = getSourceVal(destVal, mapping);
-        if (mapping == seedToSoil) {
+        if (mappingIndex == 0) {
             if (locationPart1 == null && isValidSeed(sourceVal, true)) locationPart1 = location;
             if (locationPart2 == null && isValidSeed(sourceVal, false)) locationPart2 = location;
             return;
         }
-        findSeedNumbers(sourceVal, getNextMapping(mapping, true), location);
+        findSeedNumbers(sourceVal, mappings.get(--mappingIndex), location);
     }
 
     private static boolean isValidSeed(long val, boolean part1) {
@@ -69,17 +68,6 @@ public class Day5 {
             if (range.hasValue(val)) return range.getSourceVal(val);
         }
         return val;
-    }
-
-    private static ArrayList<RangeMapping> getNextMapping(ArrayList<RangeMapping> currentMapping, boolean reverse) {
-        if (currentMapping.equals(seedToSoil)) return reverse ? null : soilToFertilizer;
-        if (currentMapping.equals(soilToFertilizer)) return reverse ? seedToSoil : fertilizerToWater;
-        if (currentMapping.equals(fertilizerToWater)) return reverse ? soilToFertilizer : waterToLight;
-        if (currentMapping.equals(waterToLight)) return reverse ? fertilizerToWater : lightToTemperature;
-        if (currentMapping.equals(lightToTemperature)) return reverse ? waterToLight : temperatureToHumidity;
-        if (currentMapping.equals(temperatureToHumidity)) return reverse ? lightToTemperature : humidityToLocation;
-        if (currentMapping.equals(humidityToLocation)) return reverse ? temperatureToHumidity : null;
-        return null;
     }
 }
 
