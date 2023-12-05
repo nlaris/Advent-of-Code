@@ -20,8 +20,6 @@ public class Day5 {
     private static Long locationPart1 = null;
     private static Long locationPart2 = null;
 
-    private static ArrayList<Long> stack = new ArrayList<>();
-
     public static void main(String[] args) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(INPUT_FILE))) {
             String line = br.readLine();
