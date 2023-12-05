@@ -8,12 +8,10 @@ public class Day5 {
     private static final String INPUT_FILE = "day5.txt";
 
     private static List<Long> seeds = new ArrayList<>();
-
     private static ArrayList<ArrayList<RangeMapping>> mappings = new ArrayList<>();
 
     private static Long locationPart1 = null;
     private static Long locationPart2 = null;
-
     private static int mappingIndex = 0;
 
     public static void main(String[] args) throws IOException {
