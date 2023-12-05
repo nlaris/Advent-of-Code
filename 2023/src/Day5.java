@@ -49,13 +49,13 @@ public class Day5 {
     }
 
     private static void findSeedNumbers(long destVal, ArrayList<RangeMapping> mapping, long location) {
-        ArrayList<RangeMapping> nextMapping = getNextMapping(mapping, true);
-        if (nextMapping == null) {
-            if (locationPart1 == null && isValidSeed(getSourceVal(destVal, mapping), true)) locationPart1 = location;
-            if (locationPart2 == null && isValidSeed(getSourceVal(destVal, mapping), false)) locationPart2 = location;
+        long sourceVal = getSourceVal(destVal, mapping);
+        if (mapping == seedToSoil) {
+            if (locationPart1 == null && isValidSeed(sourceVal, true)) locationPart1 = location;
+            if (locationPart2 == null && isValidSeed(sourceVal, false)) locationPart2 = location;
             return;
         }
-        findSeedNumbers(getSourceVal(destVal, mapping), nextMapping, location);
+        findSeedNumbers(sourceVal, getNextMapping(mapping, true), location);
     }
 
     private static boolean isValidSeed(long val, boolean part1) {
