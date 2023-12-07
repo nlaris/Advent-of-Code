@@ -6,7 +6,7 @@ import java.util.*;
 // https://adventofcode.com/2023/day/5
 public class Day5 {
 
-    private static final String INPUT_FILE = "day5.txt";
+    private static final String INPUT_FILE = "inputs/day5.txt";
 
     private static List<Long> seeds = new ArrayList<>();
     private static ArrayList<ArrayList<RangeMapping>> mappings = new ArrayList<>();

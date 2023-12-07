@@ -8,7 +8,7 @@ import java.util.HashMap;
 // https://adventofcode.com/2023/day/7
 public class Day7 {
 
-    private static final String INPUT_FILE = "day7.txt";
+    private static final String INPUT_FILE = "inputs/day7.txt";
 
     private static final HashMap<Character, Integer> cardValues = new HashMap<>() {{
         put('T', 10);

@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 // https://adventofcode.com/2021/day/7
 public class Day7 {
 
-    private static final String INPUT_FILE = "day7.txt";
+    private static final String INPUT_FILE = "inputs/day7.txt";
     private static List<Integer> inputs = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {

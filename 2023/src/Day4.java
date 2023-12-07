@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 // https://adventofcode.com/2023/day/4
 public class Day4 {
 
-    private static final String INPUT_FILE = "day4.txt";
+    private static final String INPUT_FILE = "inputs/day4.txt";
     private static HashMap<Integer, Integer> ticketCount = new HashMap<>();
 
     public static void main(String[] args) throws IOException {

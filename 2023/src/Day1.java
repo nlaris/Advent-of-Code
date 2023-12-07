@@ -6,7 +6,7 @@ import java.util.HashMap;
 // https://adventofcode.com/2023/day/1
 public class Day1 {
 
-    private static final String INPUT_FILE = "day1.txt";
+    private static final String INPUT_FILE = "inputs/day1.txt";
 
     private static HashMap<String, Integer> digits = new HashMap<>() {{
         put("one", 1);

@@ -8,7 +8,7 @@ import java.util.HashMap;
 // https://adventofcode.com/2021/day/10
 public class Day10 {
 
-    private static final String INPUT_FILE = "day10.txt";
+    private static final String INPUT_FILE = "inputs/day10.txt";
     private static final HashMap<Character, Character> braceSets = new HashMap<>() {{
         put('<', '>');
         put('[', ']');

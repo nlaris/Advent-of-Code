@@ -7,7 +7,7 @@ import java.util.List;
 // https://adventofcode.com/2023/day/6
 public class Day6 {
 
-    private static final String INPUT_FILE = "day6.txt";
+    private static final String INPUT_FILE = "inputs/day6.txt";
 
     public static void main(String[] args) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader(INPUT_FILE))) {

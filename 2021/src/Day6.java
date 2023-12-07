@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 // https://adventofcode.com/2021/day/6
 public class Day6 {
 
-    private static final String INPUT_FILE = "day6.txt";
+    private static final String INPUT_FILE = "inputs/day6.txt";
     private static final int NUM_DAYS = 256;
     private static List<Integer> initialSpawns = new ArrayList<>();
     private static long[] spawns = new long[9];

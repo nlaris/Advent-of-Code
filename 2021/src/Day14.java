@@ -7,7 +7,7 @@ import java.util.HashMap;
 // https://adventofcode.com/2021/day/14
 public class Day14 {
 
-    private static final String INPUT_FILE = "day14.txt";
+    private static final String INPUT_FILE = "inputs/day14.txt";
     private static final HashMap<String, Character> mappings = new HashMap<>();
     private static final HashMap<Character, Long> occurrences = new HashMap<>();
     private static final int NUM_STEPS = 40;

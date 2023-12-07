@@ -7,7 +7,7 @@ import java.util.HashMap;
 // https://adventofcode.com/2021/day/5
 public class Day5 {
 
-    private static final String INPUT_FILE = "day5.txt";
+    private static final String INPUT_FILE = "inputs/day5.txt";
     private static final HashMap<String, Integer> spots = new HashMap<>();
 
     public static void main(String[] args) throws IOException {

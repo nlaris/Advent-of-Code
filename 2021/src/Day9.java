@@ -7,7 +7,7 @@ import java.util.Arrays;
 // https://adventofcode.com/2021/day/9
 public class Day9 {
 
-    private static final String INPUT_FILE = "day9.txt";
+    private static final String INPUT_FILE = "inputs/day9.txt";
     private static final ArrayList<int[]> points = new ArrayList<>();
     private static final ArrayList<String> checkedPoints = new ArrayList<>();
     private static final ArrayList<Integer> biggestBasins = new ArrayList<>();

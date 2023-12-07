@@ -6,7 +6,7 @@ import java.util.ArrayList;
 // https://adventofcode.com/2021/day/16
 public class Day16 {
 
-    private static final String INPUT_FILE = "day16.txt";
+    private static final String INPUT_FILE = "inputs/day16.txt";
     private static String binaryCode = "";
     private static int versionSum;
 

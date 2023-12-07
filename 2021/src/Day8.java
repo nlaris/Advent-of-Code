@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 // https://adventofcode.com/2021/day/8
 public class Day8 {
 
-    private static final String INPUT_FILE = "day8.txt";
+    private static final String INPUT_FILE = "inputs/day8.txt";
     private static final List<String> numberInputs = new ArrayList<>();
     private static final List<String> numberOutputs = new ArrayList<>();
     private static final Map<String, Integer> NUMBER_MAPPINGS  = new HashMap<>() {{

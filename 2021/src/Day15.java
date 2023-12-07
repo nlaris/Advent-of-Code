@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
 // https://adventofcode.com/2021/day/15
 public class Day15 {
 
-    private static final String INPUT_FILE = "day15.txt";
+    private static final String INPUT_FILE = "inputs/day15.txt";
     private static Spot[][] map;
     private static int mapWidth;
     private static int mapLength;

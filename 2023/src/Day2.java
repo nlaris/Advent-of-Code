@@ -6,7 +6,7 @@ import java.util.HashMap;
 // https://adventofcode.com/2023/day/2
 public class Day2 {
 
-    private static final String INPUT_FILE = "day2.txt";
+    private static final String INPUT_FILE = "inputs/day2.txt";
 
     private static HashMap<String, Integer> maxColorCount = new HashMap<>() {{
         put("red", 12);

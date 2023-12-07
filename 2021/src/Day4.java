@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 // https://adventofcode.com/2021/day/4
 public class Day4 {
 
-    private static final String INPUT_FILE = "day4.txt";
+    private static final String INPUT_FILE = "inputs/day4.txt";
     private static final List<Board> boards = new ArrayList<>();
     private static List<Integer> turns = new ArrayList<>();
 

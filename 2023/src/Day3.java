@@ -6,7 +6,7 @@ import java.util.ArrayList;
 // https://adventofcode.com/2023/day/3
 public class Day3 {
 
-    private static final String INPUT_FILE = "day3.txt";
+    private static final String INPUT_FILE = "inputs/day3.txt";
     private static final ArrayList<String> engine = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {

@@ -7,7 +7,7 @@ import java.util.Arrays;
 // https://adventofcode.com/2021/day/11
 public class Day11 {
 
-    private static final String INPUT_FILE = "day11.txt";
+    private static final String INPUT_FILE = "inputs/day11.txt";
     private static final ArrayList<int[]> inputs = new ArrayList<>();
     private static final ArrayList<String> flashed = new ArrayList<>();
     private static final int NUM_STEPS = 100;
