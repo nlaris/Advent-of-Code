@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
+// https://adventofcode.com/2021/day/7
 public class Day7 {
 
     private static final String INPUT_FILE = "day7.txt";

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Stream;
 
+// https://adventofcode.com/2023/day/4
 public class Day4 {
 
     private static final String INPUT_FILE = "day4.txt";

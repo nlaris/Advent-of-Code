@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// https://adventofcode.com/2021/day/9
 public class Day9 {
 
     private static final String INPUT_FILE = "day9.txt";

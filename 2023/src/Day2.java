@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
+// https://adventofcode.com/2023/day/2
 public class Day2 {
 
     private static final String INPUT_FILE = "day2.txt";

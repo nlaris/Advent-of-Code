@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
+// https://adventofcode.com/2023/day/1
 public class Day1 {
 
     private static final String INPUT_FILE = "day1.txt";
@@ -32,8 +33,8 @@ public class Day1 {
                 line = br.readLine();
             }
         }
-        System.out.println("Part 1: " + part1Sum); // 55971
-        System.out.println("Part 2: " + part2Sum); // 54719
+        System.out.println("Part 1: " + part1Sum);
+        System.out.println("Part 2: " + part2Sum);
     }
 
     private static int getPart1CalibrationValue(String text) {

@@ -1,11 +1,11 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+// https://adventofcode.com/2021/day/8
 public class Day8 {
 
     private static final String INPUT_FILE = "day8.txt";

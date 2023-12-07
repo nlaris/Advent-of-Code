@@ -2,8 +2,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
+// https://adventofcode.com/2023/day/3
 public class Day3 {
 
     private static final String INPUT_FILE = "day3.txt";

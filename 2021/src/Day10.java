@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
+// https://adventofcode.com/2021/day/10
 public class Day10 {
 
     private static final String INPUT_FILE = "day10.txt";

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
 
+// https://adventofcode.com/2021/day/14
 public class Day14 {
 
     private static final String INPUT_FILE = "day14.txt";

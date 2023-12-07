@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// https://adventofcode.com/2021/day/4
 public class Day4 {
 
     private static final String INPUT_FILE = "day4.txt";
