@@ -48,7 +48,10 @@ public class Day7 {
         part2 = _part2;
         hands.sort(handComparator);
         int sum = 0;
-        for (String hand : hands) sum += bids.get(hand) * (hands.indexOf(hand) + 1);
+        for (String hand : hands) {
+            if (!part2) System.out.println(hand);
+            sum += bids.get(hand) * (hands.indexOf(hand) + 1);
+        }
         return sum;
     }
 
