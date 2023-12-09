@@ -3,6 +3,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
+// https://adventofcode.com/2023/day/8
 public class Day8 {
 
     private static final String INPUT_FILE = "inputs/day8.txt";
