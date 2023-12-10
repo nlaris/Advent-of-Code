@@ -43,9 +43,16 @@
       <recent name="C:\Users\nick\Documents\git\AoC\2023\inputs" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Day9">
+  <component name="RunManager" selected="Application.Day10">
     <configuration name="Day 1" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Day1" />
+      <module name="2023" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Day10" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Day10" />
       <module name="2023" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -60,13 +67,6 @@
     </configuration>
     <configuration name="Day6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Day6" />
-      <module name="2023" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Day7" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Day7" />
       <module name="2023" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -90,17 +90,17 @@
       <item itemvalue="Application.Day 1" />
       <item itemvalue="Application.Day5" />
       <item itemvalue="Application.Day6" />
-      <item itemvalue="Application.Day7" />
       <item itemvalue="Application.Day8" />
       <item itemvalue="Application.Day9" />
+      <item itemvalue="Application.Day10" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Day10" />
+        <item itemvalue="Application.Day5" />
         <item itemvalue="Application.Day9" />
         <item itemvalue="Application.Day8" />
         <item itemvalue="Application.Day6" />
-        <item itemvalue="Application.Day7" />
-        <item itemvalue="Application.Day5" />
       </list>
     </recent_temporary>
   </component>
