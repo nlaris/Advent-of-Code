@@ -68,24 +68,24 @@ public class Day5 {
         }
         return val;
     }
-}
 
-class RangeMapping {
-    public long destRangeStart;
-    public long sourceRangeStart;
-    public long rangeLength;
+    private static class RangeMapping {
+        public long destRangeStart;
+        public long sourceRangeStart;
+        public long rangeLength;
 
-    public RangeMapping(long[] rangeInfo) {
-        this.destRangeStart = rangeInfo[0];
-        this.sourceRangeStart = rangeInfo[1];
-        this.rangeLength = rangeInfo[2];
-    }
+        public RangeMapping(long[] rangeInfo) {
+            this.destRangeStart = rangeInfo[0];
+            this.sourceRangeStart = rangeInfo[1];
+            this.rangeLength = rangeInfo[2];
+        }
 
-    public boolean hasValue(long val) {
-        return val >= destRangeStart && val < destRangeStart + rangeLength;
-    }
+        public boolean hasValue(long val) {
+            return val >= destRangeStart && val < destRangeStart + rangeLength;
+        }
 
-    public long getSourceVal(long destVal) {
-        return (sourceRangeStart - destRangeStart) + destVal;
+        public long getSourceVal(long destVal) {
+            return (sourceRangeStart - destRangeStart) + destVal;
+        }
     }
 }
