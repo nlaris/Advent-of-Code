@@ -19,8 +19,7 @@ public class Day11 {
             galaxyRows = new boolean[line.length()];
             int row = 0;
             while (line != null) {
-                int searchIndex = 0;
-                int galaxyIndex = line.indexOf('#', searchIndex);
+                int galaxyIndex = line.indexOf('#', 0);
                 while (galaxyIndex >= 0) {
                     galaxies.add(new int[] {galaxyIndex, row});
                     galaxyColumns[galaxyIndex] = true;
