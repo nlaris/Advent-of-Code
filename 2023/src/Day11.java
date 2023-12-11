@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class Day11 {
 
     private static final String INPUT_FILE = "inputs/day11.txt";
-    private static final ArrayList<String> map = new ArrayList<>();
     private static final ArrayList<int[]> galaxies = new ArrayList<>();
 
     private static boolean[] galaxyColumns;
@@ -20,7 +19,6 @@ public class Day11 {
             galaxyRows = new boolean[line.length()];
             int row = 0;
             while (line != null) {
-                map.add(line);
                 int searchIndex = 0;
                 int galaxyIndex = line.indexOf('#', searchIndex);
                 while (galaxyIndex >= 0) {
