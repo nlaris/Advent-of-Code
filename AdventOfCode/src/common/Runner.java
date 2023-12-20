@@ -11,11 +11,9 @@ public abstract class Runner {
 
     protected HashMap<Integer, Day> days = new HashMap<>();
 
-    protected abstract void setDays();
     protected abstract int getYear();
 
     protected void runDay(final int day) throws IOException {
-        if (days.isEmpty()) setDays();
         if (!days.containsKey(day)) {
             System.out.println(getYear() + " Day " + day + " hasn't been added yet.\n");
             return;

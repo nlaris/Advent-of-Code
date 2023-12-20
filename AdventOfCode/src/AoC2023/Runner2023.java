@@ -4,8 +4,7 @@ import common.Runner;
 
 public class Runner2023 extends Runner {
 
-    @Override
-    public void setDays() {
+    public Runner2023() {
         days.put(1, new Day1());
         days.put(2, new Day2());
         days.put(3, new Day3());
