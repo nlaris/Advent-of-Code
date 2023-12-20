@@ -9,10 +9,10 @@ import java.util.HashMap;
 
 public abstract class Runner {
 
-    public HashMap<Integer, Day> days = new HashMap<>();
+    protected HashMap<Integer, Day> days = new HashMap<>();
 
-    public abstract void setDays();
-    public abstract int getYear();
+    protected abstract void setDays();
+    protected abstract int getYear();
 
     protected void runDay(final int day) throws IOException {
         if (days.isEmpty()) setDays();
@@ -23,7 +23,6 @@ public abstract class Runner {
         System.out.println(getYear() + " Day " + day);
         long time = System.currentTimeMillis();
         days.get(day).run("inputs/" + getYear() + "/day" + day + ".txt");
-        System.out.println((System.currentTimeMillis() - time) + " ms");
-        System.out.println();
+        System.out.println((System.currentTimeMillis() - time) + " ms\n");
     }
 }
