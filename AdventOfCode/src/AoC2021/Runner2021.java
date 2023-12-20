@@ -21,7 +21,7 @@ public class Runner2021 extends Runner {
     }
 
     @Override
-    public int getYear() {
+    protected int getYear() {
         return 2021;
     }
 }
