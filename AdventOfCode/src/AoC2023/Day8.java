@@ -5,7 +5,8 @@ import common.Day;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 // https://adventofcode.com/2023/day/8
 public class Day8 implements Day {

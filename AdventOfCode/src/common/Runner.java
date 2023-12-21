@@ -1,10 +1,6 @@
 package common;
 
-import AoC2021.Day4;
-import common.Day;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public abstract class Runner {
