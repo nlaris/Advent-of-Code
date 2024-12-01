@@ -20,25 +20,23 @@ public class Day5 implements Day {
     private int mappingIndex = 0;
 
     @Override
-    public void run(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            seeds = Arrays.stream(line.split(":")[1].trim().split(" ")).mapToLong(Long::parseLong).boxed().toList();
-            br.readLine(); br.readLine(); line = br.readLine();
-            ArrayList<RangeMapping> currentMap = new ArrayList<>();
-            while (line != null) {
-                if (line.isEmpty()) {
-                    mappings.add(currentMap);
-                    currentMap = new ArrayList<>();
-                    br.readLine();
-                } else {
-                    RangeMapping rangeMapping = new RangeMapping(Arrays.stream(line.split(" ")).mapToLong(Long::parseLong).toArray());
-                    currentMap.add(rangeMapping);
-                }
-                line = br.readLine();
+    public void run(BufferedReader reader) throws IOException {
+        seeds = Arrays.stream(reader.readLine().split(":")[1].trim().split(" ")).mapToLong(Long::parseLong).boxed().toList();
+        reader.readLine();
+        reader.readLine();
+        String line;
+        ArrayList<RangeMapping> currentMap = new ArrayList<>();
+        while ((line = reader.readLine()) != null) {
+            if (line.isEmpty()) {
+                mappings.add(currentMap);
+                currentMap = new ArrayList<>();
+                reader.readLine();
+            } else {
+                RangeMapping rangeMapping = new RangeMapping(Arrays.stream(line.split(" ")).mapToLong(Long::parseLong).toArray());
+                currentMap.add(rangeMapping);
             }
-            mappings.add(currentMap);
         }
+        mappings.add(currentMap);
         long location = 0;
         while (locationPart1 == null || locationPart2 == null) {
             mappingIndex = mappings.size() - 1;
@@ -61,8 +59,8 @@ public class Day5 implements Day {
 
     private boolean isValidSeed(long val, boolean part1) {
         if (part1) return seeds.contains(val);
-        for (int i = 0; i < seeds.size(); i+=2) {
-            if (val >= seeds.get(i) && val < (seeds.get(i) + seeds.get(i+1))) return true;
+        for (int i = 0; i < seeds.size(); i += 2) {
+            if (val >= seeds.get(i) && val < (seeds.get(i) + seeds.get(i + 1))) return true;
         }
         return false;
     }

@@ -13,15 +13,20 @@ public class Day12 implements Day {
 
     private final HashMap<String, ArrayList<String>> mappings = new HashMap<>();
 
-    public void run(final String inputPath) throws IOException {
-        readInput(inputPath);
+    public void run(BufferedReader reader) throws IOException {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            final String[] points = line.split("-");
+            addMapping(points[0], points[1]);
+            addMapping(points[1], points[0]);
+        }
         System.out.println("Part 1: " + checkPaths("start", new HashMap<>(), 1));
         System.out.println("Part 2: " + checkPaths("start", new HashMap<>(), 2));
     }
 
     private int checkPaths(final String p,
-                                   final HashMap<String,Integer> smallCavesChecked,
-                                   final int smallCaveLimit) {
+                           final HashMap<String, Integer> smallCavesChecked,
+                           final int smallCaveLimit) {
         if (p.equals("end")) {
             return 1;
         }
@@ -31,19 +36,7 @@ public class Day12 implements Day {
             }
             smallCavesChecked.compute(p, (key, val) -> (val == null) ? 1 : val + 1);
         }
-        return mappings.get(p).stream().mapToInt(x -> checkPaths(x, new HashMap<>(smallCavesChecked),smallCaveLimit)).sum();
-    }
-
-    private void readInput(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            while (line != null) {
-                final String[] points = line.split("-");
-                addMapping(points[0], points[1]);
-                addMapping(points[1], points[0]);
-                line = br.readLine();
-            }
-        }
+        return mappings.get(p).stream().mapToInt(x -> checkPaths(x, new HashMap<>(smallCavesChecked), smallCaveLimit)).sum();
     }
 
     private void addMapping(final String from, final String to) {

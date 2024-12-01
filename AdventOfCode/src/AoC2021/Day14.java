@@ -15,8 +15,19 @@ public class Day14 implements Day {
     private final HashMap<Character, Long> occurrences = new HashMap<>();
     private HashMap<String, Long> codePairs = new HashMap<>();
 
-    public void run(final String inputPath) throws IOException {
-        readInput(inputPath);
+    public void run(BufferedReader reader) throws IOException {
+        final String code = reader.readLine();
+        occurrences.put(code.charAt(0), 1L);
+        for (int c = 1; c < code.length(); c++) {
+            codePairs.compute(code.charAt(c - 1) + "" + code.charAt(c), (key, val) -> val == null ? 1 : val + 1);
+            occurrences.compute(code.charAt(c), (key, val) -> val == null ? 1 : val + 1);
+        }
+        reader.readLine();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] mapping = line.split(" -> ");
+            mappings.put(mapping[0], mapping[1].charAt(0));
+        }
         for (int s = 1; s <= 40; s++) {
             final HashMap<String, Long> newCode = new HashMap<>(codePairs);
             for (String pair : mappings.keySet()) {
@@ -35,23 +46,5 @@ public class Day14 implements Day {
             }
         }
         System.out.println("Part 2: " + (Collections.max(occurrences.values()) - Collections.min(occurrences.values())));
-    }
-
-    private void readInput(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            final String code = br.readLine();
-            occurrences.put(code.charAt(0), 1L);
-            for (int c = 1; c < code.length(); c++) {
-                codePairs.compute(code.charAt(c - 1) + "" + code.charAt(c), (key, val) -> val == null ? 1 : val + 1);
-                occurrences.compute(code.charAt(c), (key, val) -> val == null ? 1 : val + 1);
-            }
-            br.readLine();
-            String line = br.readLine();
-            while (line != null) {
-                String[] mapping = line.split(" -> ");
-                mappings.put(mapping[0], mapping[1].charAt(0));
-                line = br.readLine();
-            }
-        }
     }
 }

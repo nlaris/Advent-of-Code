@@ -13,24 +13,16 @@ import java.util.stream.Collectors;
 // https://adventofcode.com/2021/day/6
 public class Day6 implements Day {
 
-    private List<Integer> initialSpawns = new ArrayList<>();
     private long[] spawns = new long[9];
 
     @Override
-    public void run(final String inputPath) throws IOException {
-        readInput(inputPath);
+    public void run(BufferedReader reader) throws IOException {
+        List<Integer> initialSpawns = Arrays.stream(reader.readLine().split(","))
+                .map(Integer::parseInt).toList();
         for (Integer spawn : initialSpawns) {
             spawns[spawn]++;
         }
         simulateDays();
-    }
-
-    private void readInput(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            initialSpawns = Arrays.stream(br.readLine().split(","))
-                    .map(Integer::parseInt)
-                    .collect(Collectors.toList());
-        }
     }
 
     private void simulateDays() {

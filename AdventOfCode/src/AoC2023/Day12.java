@@ -13,18 +13,15 @@ import java.util.List;
 public class Day12 implements Day {
 
     @Override
-    public void run(final String inputPath) throws IOException {
+    public void run(BufferedReader reader) throws IOException {
         int part1Sum = 0;
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            while (line != null) {
-                String[] parts = line.split(" ");
-                part1Sum += getTotalArrangements(Arrays.stream(parts[0].replace('.', ' ').trim().split(" +")).toList(),
-                        Arrays.stream(parts[1].split(",")).mapToInt(Integer::parseInt).boxed().toList());
-                line = br.readLine();
-            }
-            System.out.println("Part 1: " + part1Sum);
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] parts = line.split(" ");
+            part1Sum += getTotalArrangements(Arrays.stream(parts[0].replace('.', ' ').trim().split(" +")).toList(),
+                    Arrays.stream(parts[1].split(",")).mapToInt(Integer::parseInt).boxed().toList());
         }
+        System.out.println("Part 1: " + part1Sum);
     }
 
     private int getTotalArrangements(List<String> springs, List<Integer> groups) {

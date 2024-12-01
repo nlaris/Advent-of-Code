@@ -13,8 +13,16 @@ public class Day13 implements Day {
     private final HashMap<Integer, Set<Integer>> dots = new HashMap<>();
     private final ArrayList<String> folds = new ArrayList<>();
 
-    public void run(final String inputPath) throws IOException {
-        readInput(inputPath);
+    public void run(BufferedReader reader) throws IOException {
+        String line;
+        while (!(line = reader.readLine()).isEmpty()) {
+            final int[] coordinates = Arrays.stream(line.split(",")).mapToInt(Integer::parseInt).toArray();
+            dots.computeIfAbsent(coordinates[1], k -> new HashSet<>());
+            dots.get(coordinates[1]).add(coordinates[0]);
+        }
+        while ((line = reader.readLine()) != null) {
+            folds.add(line.split(" ")[2]);
+        }
         boolean firstFold = true;
         for (String fold : folds) {
             foldPaper(fold);
@@ -59,23 +67,6 @@ public class Day13 implements Day {
                 System.out.print(dots.get(x).contains(y) ? "# " : ". ");
             }
             System.out.println();
-        }
-    }
-
-    private void readInput(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            while (!line.isEmpty()) {
-                final int[] coordinates = Arrays.stream(line.split(",")).mapToInt(Integer::parseInt).toArray();
-                dots.computeIfAbsent(coordinates[1], k -> new HashSet<>());
-                dots.get(coordinates[1]).add(coordinates[0]);
-                line = br.readLine();
-            }
-            line = br.readLine();
-            while (line != null) {
-                folds.add(line.split(" ")[2]);
-                line = br.readLine();
-            }
         }
     }
 }

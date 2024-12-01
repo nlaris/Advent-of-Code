@@ -28,8 +28,11 @@ public class Day10 implements Day {
     private int part1Score = 0;
 
     @Override
-    public void run(final String inputPath) throws IOException {
-        readInput(inputPath);
+    public void run(BufferedReader reader) throws IOException {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            parseLine(line);
+        }
         Collections.sort(incompleteRowScores);
         System.out.println("Part 1: " + part1Score);
         System.out.println("Part 2: " + incompleteRowScores.get(incompleteRowScores.size()/2));
@@ -56,15 +59,5 @@ public class Day10 implements Day {
             incompleteScore = (incompleteScore * 5) + braceScores.get(expected.get(i))[1];
         }
         incompleteRowScores.add(incompleteScore);
-    }
-
-    private void readInput(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            while (line != null) {
-                parseLine(line);
-                line = br.readLine();
-            }
-        }
     }
 }

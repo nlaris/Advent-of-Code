@@ -13,13 +13,15 @@ public class Day11 implements Day {
 
     private final ArrayList<int[]> inputs = new ArrayList<>();
     private final ArrayList<String> flashed = new ArrayList<>();
-    private final int NUM_STEPS = 100;
     private int stepNumber = 1;
     private int totalFlashes = 0;
 
     @Override
-    public void run(final String inputPath) throws IOException {
-        readInput(inputPath);
+    public void run(BufferedReader reader) throws IOException {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            inputs.add(Arrays.stream(line.split("")).mapToInt(Integer::parseInt).toArray());
+        }
         while (takeStep()) {
             stepNumber++;
         }
@@ -44,21 +46,12 @@ public class Day11 implements Day {
         inputs.get(row)[col] = (inputs.get(row)[col] + 1) % 10;
         if (inputs.get(row)[col] == 0) {
             flashed.add(row + "" + col);
+            int NUM_STEPS = 100;
             if (stepNumber <= NUM_STEPS) totalFlashes++;
             for (int r = Math.max(row - 1, 0); r <= Math.min(row + 1, inputs.size() - 1); r++) {
                 for (int c = Math.max(col - 1, 0); c <= Math.min(col + 1, inputs.get(0).length - 1); c++) {
                     increase(r, c);
                 }
-            }
-        }
-    }
-
-    private void readInput(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            while (line != null) {
-                inputs.add(Arrays.stream(line.split("")).mapToInt(Integer::parseInt).toArray());
-                line = br.readLine();
             }
         }
     }

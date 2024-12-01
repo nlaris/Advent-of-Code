@@ -1,7 +1,8 @@
 package common;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 
 public interface Day {
-    void run(final String inputPath) throws IOException;
+    void run(final BufferedReader reader) throws IOException;
 }

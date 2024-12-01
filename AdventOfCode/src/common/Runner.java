@@ -1,5 +1,7 @@
 package common;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -16,7 +18,16 @@ public abstract class Runner {
         }
         System.out.println(getYear() + " Day " + day);
         long time = System.currentTimeMillis();
-        days.get(day).run("inputs/" + getYear() + "/day" + day + ".txt");
+        final String inputPath = "inputs/" + getYear() + "/day" + day + ".txt";
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputPath))) {
+            days.get(day).run(reader);
+        }
         System.out.println((System.currentTimeMillis() - time) + " ms\n");
+    }
+
+    protected void runAllDays() throws IOException {
+        for (Integer i : days.keySet()) {
+            runDay(i);
+        }
     }
 }

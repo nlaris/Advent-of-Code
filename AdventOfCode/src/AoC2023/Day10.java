@@ -15,34 +15,31 @@ public class Day10 implements Day {
     private final ArrayList<String> map = new ArrayList<>();
     private final ArrayList<String> path = new ArrayList<>();
     private final HashMap<Character, int[][]> connectionCoords = new HashMap<>() {{
-        put('-', new int[][]{{-1,0}, {1,0}});
-        put('|', new int[][]{{0,1}, {0,-1}});
-        put('7', new int[][]{{-1,0}, {0,1}});
-        put('J', new int[][]{{-1,0}, {0,-1}});
-        put('L', new int[][]{{1,0}, {0,-1}});
-        put('F', new int[][]{{1,0}, {0,1}});
+        put('-', new int[][]{{-1, 0}, {1, 0}});
+        put('|', new int[][]{{0, 1}, {0, -1}});
+        put('7', new int[][]{{-1, 0}, {0, 1}});
+        put('J', new int[][]{{-1, 0}, {0, -1}});
+        put('L', new int[][]{{1, 0}, {0, -1}});
+        put('F', new int[][]{{1, 0}, {0, 1}});
     }};
 
     private int[] currentCoords;
     private int furthestSpot;
 
     @Override
-    public void run(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            int row = 0;
-            while (line != null) {
-                if (line.contains("S")) currentCoords = new int[] {line.indexOf('S'), row};
-                map.add(line);
-                row++;
-                line = br.readLine();
-            }
-            final char startingChar = getStartingChar();
-            map.set(currentCoords[1], map.get(currentCoords[1]).replace('S', startingChar));
-            findPath(startingChar);
-            System.out.println("Part 1: " + furthestSpot);
-            System.out.println("Part 2: " + getEnclosedLocations());
+    public void run(BufferedReader reader) throws IOException {
+        String line;
+        int row = 0;
+        while ((line = reader.readLine()) != null) {
+            if (line.contains("S")) currentCoords = new int[]{line.indexOf('S'), row};
+            map.add(line);
+            row++;
         }
+        final char startingChar = getStartingChar();
+        map.set(currentCoords[1], map.get(currentCoords[1]).replace('S', startingChar));
+        findPath(startingChar);
+        System.out.println("Part 1: " + furthestSpot);
+        System.out.println("Part 2: " + getEnclosedLocations());
     }
 
     private char getStartingChar() {
@@ -79,9 +76,9 @@ public class Day10 implements Day {
 
     private int[] getNextCoords(char currentChar, String prevCoords) {
         int[][] conns = connectionCoords.get(currentChar);
-        int[] nextCoords = new int[] {currentCoords[0] + conns[0][0], currentCoords[1] + conns[0][1]};
+        int[] nextCoords = new int[]{currentCoords[0] + conns[0][0], currentCoords[1] + conns[0][1]};
         if (translateCoord(nextCoords).equals(prevCoords)) {
-            nextCoords = new int[] {currentCoords[0] + conns[1][0], currentCoords[1] + conns[1][1]};
+            nextCoords = new int[]{currentCoords[0] + conns[1][0], currentCoords[1] + conns[1][1]};
         }
         return nextCoords;
     }

@@ -17,8 +17,10 @@ public class Day7 implements Day {
     private List<Integer> inputs = new ArrayList<>();
 
     @Override
-    public void run(final String inputPath) throws IOException {
-        readInput(inputPath);
+    public void run(BufferedReader reader) throws IOException {
+        inputs = Arrays.stream(reader.readLine().split(","))
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
         Collections.sort(inputs);
         int medianIndex = inputs.size() / 2;
         System.out.println("Part 1: " + getPart1PositionScore(inputs.get(medianIndex)));
@@ -39,13 +41,5 @@ public class Day7 implements Day {
 
     private int getDistanceFuel(final int n) {
         return (n * (n+1) / 2);
-    }
-
-    private void readInput(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            inputs = Arrays.stream(br.readLine().split(","))
-                    .map(Integer::parseInt)
-                    .collect(Collectors.toList());
-        }
     }
 }

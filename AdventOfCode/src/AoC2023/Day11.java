@@ -16,26 +16,23 @@ public class Day11 implements Day {
     private boolean[] galaxyRows;
 
     @Override
-    public void run(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            galaxyColumns = new boolean[line.length()];
-            galaxyRows = new boolean[line.length()];
-            int row = 0;
-            while (line != null) {
-                int galaxyIndex = line.indexOf('#', 0);
-                while (galaxyIndex >= 0) {
-                    galaxies.add(new int[] {galaxyIndex, row});
-                    galaxyColumns[galaxyIndex] = true;
-                    galaxyRows[row] = true;
-                    galaxyIndex = line.indexOf('#', galaxyIndex + 1);
-                }
-                line = br.readLine();
-                row++;
+    public void run(BufferedReader reader) throws IOException {
+        String line = reader.readLine();
+        galaxyColumns = new boolean[line.length()];
+        galaxyRows = new boolean[line.length()];
+        int row = 0;
+        while ((line = reader.readLine()) != null) {
+            int galaxyIndex = line.indexOf('#', 0);
+            while (galaxyIndex >= 0) {
+                galaxies.add(new int[]{galaxyIndex, row});
+                galaxyColumns[galaxyIndex] = true;
+                galaxyRows[row] = true;
+                galaxyIndex = line.indexOf('#', galaxyIndex + 1);
             }
-            System.out.println("Part 1: " + getLengthSum(2));
-            System.out.println("Part 2: " + getLengthSum(1000000));
+            row++;
         }
+        System.out.println("Part 1: " + getLengthSum(2));
+        System.out.println("Part 2: " + getLengthSum(1000000));
     }
 
     private long getLengthSum(int expansionRate) {

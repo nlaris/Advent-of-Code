@@ -13,13 +13,10 @@ public class Day3 implements Day {
     private final ArrayList<String> engine = new ArrayList<>();
 
     @Override
-    public void run(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            while (line != null) {
-                engine.add(line);
-                line = br.readLine();
-            }
+    public void run(BufferedReader reader) throws IOException {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            engine.add(line);
         }
         System.out.println("Part 1: " + getEngineSum());
         System.out.println("Part 2: " + getGearRatioSum());

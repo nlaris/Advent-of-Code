@@ -16,11 +16,13 @@ public class Day9 implements Day {
     private final ArrayList<Integer> biggestBasins = new ArrayList<>();
 
     @Override
-    public void run(final String inputPath) throws IOException {
-        System.out.println(inputPath);
-        readInput(inputPath);
+    public void run(BufferedReader reader) throws IOException {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            points.add(Arrays.stream(line.split("")).mapToInt(Integer::parseInt).toArray());
+        }
         int totalRiskLevels = 0;
-        for (int row = 0; row<points.size(); row++) {
+        for (int row = 0; row < points.size(); row++) {
             int[] rowPoints = points.get(row);
             for (int col = 0; col< rowPoints.length; col++) {
                 int point = rowPoints[col];
@@ -57,15 +59,5 @@ public class Day9 implements Day {
         }
         biggestBasins.add(index, basinSize);
         if (biggestBasins.size() == 4) biggestBasins.remove(3);
-    }
-
-    private void readInput(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            while (line != null) {
-                points.add(Arrays.stream(line.split("")).mapToInt(Integer::parseInt).toArray());
-                line = br.readLine();
-            }
-        }
     }
 }

@@ -16,16 +16,13 @@ public class Day9 implements Day {
     private int part2Sum = 0;
 
     @Override
-    public void run(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            while (line != null) {
-                getExtrapolatedValues(Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).boxed().toList());
-                line = br.readLine();
-            }
-            System.out.println("Part 1: " + part1Sum);
-            System.out.println("Part 2: " + part2Sum);
+    public void run(BufferedReader reader) throws IOException {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            getExtrapolatedValues(Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).boxed().toList());
         }
+        System.out.println("Part 1: " + part1Sum);
+        System.out.println("Part 2: " + part2Sum);
     }
 
     private void getExtrapolatedValues(List<Integer> history) {

@@ -3,7 +3,6 @@ package AoC2024;
 import common.Day;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,17 +16,14 @@ public class Day1 implements Day {
     private final HashMap<Integer, Integer> list2Occurrences = new HashMap<>();
 
     @Override
-    public void run(String inputPath) throws IOException {
+    public void run(BufferedReader reader) throws IOException {
         int part1Sum = 0, part2Sum = 0;
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            while (line != null) {
-                String[] vals = line.split("   ");
-                list1.add(Integer.parseInt(vals[0]));
-                list2.add(Integer.parseInt(vals[1]));
-                list2Occurrences.compute(Integer.parseInt(vals[1]), (key, value) -> (value == null) ? 1 : value + 1);
-                line = br.readLine();
-            }
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] vals = line.split("   ");
+            list1.add(Integer.parseInt(vals[0]));
+            list2.add(Integer.parseInt(vals[1]));
+            list2Occurrences.compute(Integer.parseInt(vals[1]), (key, value) -> (value == null) ? 1 : value + 1);
         }
         Collections.sort(list1);
         Collections.sort(list2);

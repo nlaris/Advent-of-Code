@@ -13,8 +13,11 @@ public class Day16 implements Day {
     private String binaryCode = "";
     private int versionSum;
 
-    public void run(final String inputPath) throws IOException {
-        readInput(inputPath);
+    public void run(BufferedReader reader) throws IOException {
+        final String input = reader.readLine();
+        for (char c : input.toCharArray()) {
+            binaryCode = binaryCode.concat(String.format("%4s", Integer.toBinaryString(Character.getNumericValue(c))).replaceAll(" ", "0"));
+        }
         Packet p = parsePackets(new Packet(binaryCode));
         System.out.println("Part 1: " + versionSum);
         System.out.println("Part 2: " + p.value);
@@ -71,15 +74,6 @@ public class Day16 implements Day {
             case 5 -> p.value = p.subPackets.get(0).value > p.subPackets.get(1).value ? 1 : 0;
             case 6 -> p.value = p.subPackets.get(0).value < p.subPackets.get(1).value ? 1 : 0;
             case 7 -> p.value = p.subPackets.get(0).value == p.subPackets.get(1).value ? 1 : 0;
-        }
-    }
-
-    private void readInput(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            final String input = br.readLine();
-            for (char c : input.toCharArray()) {
-                binaryCode = binaryCode.concat(String.format("%4s", Integer.toBinaryString(Character.getNumericValue(c))).replaceAll(" ", "0"));
-            }
         }
     }
 

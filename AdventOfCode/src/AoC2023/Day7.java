@@ -33,15 +33,12 @@ public class Day7 implements Day {
     private static final int FIVE_OF_A_KIND_SCORE = 7;
 
     @Override
-    public void run(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            while (line != null) {
-                String[] hand = line.split(" ");
-                hands.add(hand[0]);
-                bids.put(hand[0], Long.parseLong(hand[1]));
-                line = br.readLine();
-            }
+    public void run(BufferedReader reader) throws IOException {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] hand = line.split(" ");
+            hands.add(hand[0]);
+            bids.put(hand[0], Long.parseLong(hand[1]));
         }
         System.out.println("Part 1: " + getTotalWinnings(false));
         System.out.println("Part 2: " + getTotalWinnings(true));

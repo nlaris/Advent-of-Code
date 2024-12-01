@@ -3,7 +3,6 @@ package AoC2021;
 import common.Day;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,11 +13,21 @@ import java.util.stream.Collectors;
 public class Day4 implements Day {
 
     private final List<Board> boards = new ArrayList<>();
-    private List<Integer> turns = new ArrayList<>();
 
     @Override
-    public void run(final String inputPath) throws IOException {
-        readInput(inputPath);
+    public void run(BufferedReader reader) throws IOException {
+        String line = reader.readLine();
+        List<Integer> turns = Arrays.stream(line.split(","))
+                .map(Integer::parseInt).toList();
+        reader.readLine();
+        while ((line = reader.readLine()) != null) {
+            final Board board = new Board();
+            for (int i = 0; i < 5; i++) {
+                board.addRow(i, Arrays.stream(line.split(" ")).filter(x -> !x.isEmpty()).toArray(String[]::new));
+                line = reader.readLine();
+            }
+            boards.add(board);
+        }
         boolean winnerFound = false;
         for (int turn : turns) {
             for (int b = 0; b < boards.size(); b++) {
@@ -35,26 +44,6 @@ public class Day4 implements Day {
                     boards.remove(b);
                     b--;
                 }
-            }
-        }
-    }
-
-    private void readInput(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            turns = Arrays.stream(line.split(","))
-                    .map(Integer::parseInt)
-                    .collect(Collectors.toList());
-            br.readLine();
-            line = br.readLine();
-            while (line != null) {
-                final Board board = new Board();
-                for (int i = 0; i < 5; i++) {
-                    board.addRow(i, Arrays.stream(line.split(" ")).filter(x -> !x.isEmpty()).toArray(String[]::new));
-                    line = br.readLine();
-                }
-                boards.add(board);
-                line = br.readLine();
             }
         }
     }

@@ -17,18 +17,15 @@ public class Day2 implements Day {
     }};
 
     @Override
-    public void run(final String inputPath) throws IOException {
+    public void run(BufferedReader reader) throws IOException {
         int part1Sum = 0, part2Sum = 0;
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            while (line != null) {
-                part1Sum += getPart1GameSum(line);
-                part2Sum += getPart2GameSum(line);
-                line = br.readLine();
-            }
+        String line;
+        while ((line = reader.readLine()) != null) {
+            part1Sum += getPart1GameSum(line);
+            part2Sum += getPart2GameSum(line);
         }
-        System.out.println("Part 1: " +part1Sum);
-        System.out.println("Part 2: " +part2Sum);
+        System.out.println("Part 1: " + part1Sum);
+        System.out.println("Part 2: " + part2Sum);
     }
 
     private int getPart1GameSum(String line) {

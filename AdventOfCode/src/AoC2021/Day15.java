@@ -14,10 +14,11 @@ public class Day15 implements Day {
     private int mapWidth;
     private int mapLength;
 
-    public void run(final String inputPath) throws IOException {
-        readInput(false, inputPath);
+    public void run(BufferedReader reader) throws IOException {
+        readInput(false, reader);
         System.out.println("Part 1: " + getShortestPath());
-        readInput(true, inputPath);
+        reader.reset();
+        readInput(true, reader);
         System.out.println("Part 2: " + getShortestPath());
     }
 
@@ -33,8 +34,10 @@ public class Day15 implements Day {
                 } else {
                     if (currentSpot.r > 0) checkScore(currentSpot.r - 1, currentSpot.c, currentSpot.totalScore, pq);
                     if (currentSpot.c > 0) checkScore(currentSpot.r, currentSpot.c - 1, currentSpot.totalScore, pq);
-                    if (currentSpot.r < mapLength - 1) checkScore(currentSpot.r + 1, currentSpot.c, currentSpot.totalScore, pq);
-                    if (currentSpot.c < mapWidth - 1) checkScore(currentSpot.r, currentSpot.c + 1, currentSpot.totalScore, pq);
+                    if (currentSpot.r < mapLength - 1)
+                        checkScore(currentSpot.r + 1, currentSpot.c, currentSpot.totalScore, pq);
+                    if (currentSpot.c < mapWidth - 1)
+                        checkScore(currentSpot.r, currentSpot.c + 1, currentSpot.totalScore, pq);
                 }
             }
         }
@@ -48,40 +51,38 @@ public class Day15 implements Day {
         }
     }
 
-    private void readInput(final boolean part2, final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            br.mark(1000000);
-            mapLength = (int) br.lines().count();
-            br.reset();
-            String line = br.readLine();
-            mapWidth = line.length();
-            if (part2) {
-                map = new Spot[mapLength * 5][mapWidth * 5];
-                for (int row = 0; row < mapLength; row++) {
-                    for (int col = 0; col < mapWidth; col++) {
-                        for (int i = 0; i < 5; i++) {
-                            for (int j = 0; j < 5; j++) {
-                                final int score = ((Integer.parseInt(line.split("")[col]) + i + j - 1) % 9) + 1;
-                                map[row + (i * mapLength)][col + (j * mapWidth)] = new Spot(row + (i * mapLength), col + (j * mapWidth), score);
-                                map[row + (j * mapLength)][col + (i * mapWidth)] = new Spot(row + (j * mapLength), col + (i * mapWidth), score);
-                            }
+    private void readInput(final boolean part2, final BufferedReader reader) throws IOException {
+        reader.mark(1000000);
+        mapLength = (int) reader.lines().count();
+        reader.reset();
+        String line = reader.readLine();
+        mapWidth = line.length();
+        if (part2) {
+            map = new Spot[mapLength * 5][mapWidth * 5];
+            for (int row = 0; row < mapLength; row++) {
+                for (int col = 0; col < mapWidth; col++) {
+                    for (int i = 0; i < 5; i++) {
+                        for (int j = 0; j < 5; j++) {
+                            final int score = ((Integer.parseInt(line.split("")[col]) + i + j - 1) % 9) + 1;
+                            map[row + (i * mapLength)][col + (j * mapWidth)] = new Spot(row + (i * mapLength), col + (j * mapWidth), score);
+                            map[row + (j * mapLength)][col + (i * mapWidth)] = new Spot(row + (j * mapLength), col + (i * mapWidth), score);
                         }
                     }
-                    line = br.readLine();
                 }
-                mapWidth *= 5;
-                mapLength *= 5;
-            } else {
-                map = new Spot[mapLength][mapWidth];
-                for (int row = 0; row < mapLength; row++) {
-                    for (int col = 0; col < mapWidth; col++) {
-                        map[row][col] = new Spot(row, col, Integer.parseInt(line.split("")[col]));
-                    }
-                    line = br.readLine();
-                }
+                line = reader.readLine();
             }
-            map[0][0].score = 0;
+            mapWidth *= 5;
+            mapLength *= 5;
+        } else {
+            map = new Spot[mapLength][mapWidth];
+            for (int row = 0; row < mapLength; row++) {
+                for (int col = 0; col < mapWidth; col++) {
+                    map[row][col] = new Spot(row, col, Integer.parseInt(line.split("")[col]));
+                }
+                line = reader.readLine();
+            }
         }
+        map[0][0].score = 0;
     }
 
     private static class Spot implements Comparable<Spot> {

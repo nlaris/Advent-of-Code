@@ -33,8 +33,13 @@ public class Day8 implements Day {
     }};
 
     @Override
-    public void run(final String inputPath) throws IOException {
-        readInput(inputPath);
+    public void run(BufferedReader reader) throws IOException {
+        String line;
+        while ((line = reader.readLine()) != null) {
+            final String[] displays = line.split(" \\| ");
+            numberInputs.add(displays[0]);
+            numberOutputs.add(displays[1]);
+        }
         System.out.println("Part 1: " + numberOutputs.stream()
                 .flatMap(output -> Arrays.stream(output.split(" ")))
                 .filter(o -> o.length() <= 4 || o.length() == 7)
@@ -86,18 +91,6 @@ public class Day8 implements Day {
             part2Total += Integer.parseInt(result.toString());
         }
         System.out.println("Part 2: " + part2Total);
-    }
-
-    private void readInput(final String inputPath) throws IOException {
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            while (line != null) {
-                final String[] displays = line.split(" \\| ");
-                numberInputs.add(displays[0]);
-                numberOutputs.add(displays[1]);
-                line = br.readLine();
-            }
-        }
     }
 
     static class SortByStringSize implements Comparator<String> {

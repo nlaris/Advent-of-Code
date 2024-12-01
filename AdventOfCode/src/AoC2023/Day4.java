@@ -17,14 +17,11 @@ public class Day4 implements Day {
     private final HashMap<Integer, Integer> ticketCount = new HashMap<>();
 
     @Override
-    public void run(final String inputPath) throws IOException {
+    public void run(BufferedReader reader) throws IOException {
         int pointSum = 0;
-        try (BufferedReader br = new BufferedReader(new FileReader(inputPath))) {
-            String line = br.readLine();
-            while (line != null) {
-                pointSum += calculatePoints(line);
-                line = br.readLine();
-            }
+        String line;
+        while ((line = reader.readLine()) != null) {
+            pointSum += calculatePoints(line);
         }
         System.out.println("Part 1: " + pointSum);
         System.out.println("Part 2: " + ticketCount.values().stream().mapToInt(Integer::intValue).sum());
@@ -40,7 +37,7 @@ public class Day4 implements Day {
         for (int i = 1; i <= myWinningNumbers.size(); i++) {
             ticketCount.compute(gameNumber + i, (k, v) -> v == null ? ticketCount.get(gameNumber) : v + ticketCount.get(gameNumber));
         }
-        return myWinningNumbers.isEmpty() ? 0 : (int)Math.pow(2, myWinningNumbers.size() - 1);
+        return myWinningNumbers.isEmpty() ? 0 : (int) Math.pow(2, myWinningNumbers.size() - 1);
     }
 
     private ArrayList<Integer> getNumbers(Stream<String> stream) {
@@ -49,7 +46,8 @@ public class Day4 implements Day {
             try {
                 int d = Integer.parseInt(s);
                 numbers.add(d);
-            } catch (NumberFormatException ignored) {}
+            } catch (NumberFormatException ignored) {
+            }
         });
         return numbers;
     }
