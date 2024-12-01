@@ -31,7 +31,7 @@ public class Day9 implements Day {
     private void getExtrapolatedValues(List<Integer> history) {
         ArrayList<ArrayList<Integer>> sequences = new ArrayList<>();
         sequences.add(new ArrayList<>(history));
-        while(sequences.get(0).stream().anyMatch(x -> x != 0)) {
+        while (sequences.get(0).stream().anyMatch(x -> x != 0)) {
             ArrayList<Integer> diffs = new ArrayList<>();
             for (int i = 0; i < sequences.get(0).size() - 1; i++) {
                 diffs.add(sequences.get(0).get(i + 1) - sequences.get(0).get(i));

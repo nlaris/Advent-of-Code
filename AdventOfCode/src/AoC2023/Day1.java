@@ -77,7 +77,7 @@ public class Day1 implements Day {
 
     private int getLastWordIndex(String text) {
         int latestIndex = -1;
-        for(String s : digits.keySet()) {
+        for (String s : digits.keySet()) {
             int index = text.lastIndexOf(s);
             if (index > latestIndex) {
                 latestIndex = index;
@@ -89,7 +89,7 @@ public class Day1 implements Day {
 
     private int getFirstWordIndex(String text) {
         int earliestIndex = Integer.MAX_VALUE;
-        for(String s : digits.keySet()) {
+        for (String s : digits.keySet()) {
             int index = text.indexOf(s);
             if (index != -1 && index < earliestIndex) {
                 earliestIndex = index;

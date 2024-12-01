@@ -19,7 +19,7 @@ public class Day6 implements Day {
     @Override
     public void run(final String inputPath) throws IOException {
         readInput(inputPath);
-        for(Integer spawn : initialSpawns) {
+        for (Integer spawn : initialSpawns) {
             spawns[spawn]++;
         }
         simulateDays();
