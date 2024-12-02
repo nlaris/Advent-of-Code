@@ -16,7 +16,7 @@ public class Main {
     }};
 
     public static void main(String[] args) throws IOException {
-        runDay(2024, 1);
+        runDay(2024, 2);
     }
 
     private static void runDay(final int year, final int day) throws IOException {

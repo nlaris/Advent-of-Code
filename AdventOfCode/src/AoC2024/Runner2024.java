@@ -6,6 +6,7 @@ public class Runner2024 extends Runner {
 
     public Runner2024() {
         days.put(1, new Day1());
+        days.put(2, new Day2());
     }
 
     @Override
