@@ -4,7 +4,9 @@ import common.Day;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 // https://adventofcode.com/2024/day/2
 public class Day2 implements Day {
@@ -14,7 +16,9 @@ public class Day2 implements Day {
         int part1Sum = 0, part2Sum = 0;
         String line;
         while ((line = reader.readLine()) != null) {
-            int[] levels = Arrays.stream(line.split("\\s+")).mapToInt(Integer::parseInt).toArray();
+            ArrayList<Integer> levels = Arrays.stream(line.split("\\s+"))
+                    .map(Integer::parseInt)
+                    .collect(Collectors.toCollection(ArrayList::new));
             part1Sum += reportValid(levels, false) ? 1 : 0;
             part2Sum += reportValid(levels, true) ? 1 : 0;
         }
@@ -22,10 +26,10 @@ public class Day2 implements Day {
         System.out.println("Part 2: " + part2Sum);
     }
 
-    private static boolean reportValid(int[] levels, boolean dampen) {
-        boolean increasing = levels[1] > levels[0];
-        for (int i = 1; i < levels.length; i++) {
-            int diff = levels[i] - levels[i - 1];
+    private static boolean reportValid(ArrayList<Integer> levels, boolean dampen) {
+        boolean increasing = levels.get(1) >  levels.get(0);
+        for (int i = 1; i < levels.size(); i++) {
+            int diff = levels.get(i) - levels.get(i - 1);
             if (diff == 0 || Math.abs(diff) > 3 || diff > 0 ^ increasing) {
                 if (dampen) {
                     return reportValid(removeElement(levels, i), false) || // This will cover the diff == 0 cases, and some other cases
@@ -38,13 +42,9 @@ public class Day2 implements Day {
         return true;
     }
 
-    public static int[] removeElement(int[] array, int indexToRemove) {
-        int[] result = new int[array.length - 1];
-        for (int i = 0, j = 0; i < array.length; i++) {
-            if (i != indexToRemove) {
-                result[j++] = array[i];
-            }
-        }
-        return result;
+    public static ArrayList<Integer> removeElement(ArrayList<Integer> levels, int indexToRemove) {
+        ArrayList<Integer> newList = new ArrayList<>(levels);
+        newList.remove(indexToRemove);
+        return newList;
     }
 }
