@@ -28,9 +28,9 @@ public class Day2 implements Day {
             int diff = levels[i] - levels[i - 1];
             if (diff == 0 || Math.abs(diff) > 3 || diff > 0 ^ increasing) {
                 if (dampen) {
-                    return reportValid(removeElement(levels, i), false) ||
-                            reportValid(removeElement(levels, i - 1), false) ||
-                            i >= 2 && reportValid(removeElement(levels, i - 2), false);
+                    return reportValid(removeElement(levels, i), false) || // This will cover the diff == 0 cases, and some other cases
+                            reportValid(removeElement(levels, i - 1), false) || // This will cover remaining diff > 3 cases, and some !direction cases
+                            i >= 2 && reportValid(removeElement(levels, i - 2), false); // This will cover remaining !direction cases
                 }
                 return false;
             }
