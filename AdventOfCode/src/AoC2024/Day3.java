@@ -14,20 +14,23 @@ public class Day3 implements Day {
         String line;
         boolean startEnabled = true;
         while ((line = reader.readLine()) != null) {
-            Matcher matcher = Pattern.compile("mul\\((\\d+),(\\d+)\\)").matcher(line);
-            while(matcher.find()) {
-                part1Sum += Integer.parseInt(matcher.group(1)) * Integer.parseInt(matcher.group(2));
-            }
-            line = startEnabled ? "do()" + line : "don't()" + line;
+            part1Sum += getSum(line);
+            line = (startEnabled ? "do()" : "don't()") + line;
             startEnabled = line.lastIndexOf("don't()") < line.lastIndexOf("do()");
             line += "do()";
             line = line.replaceAll("don't\\(\\)(.*?)do\\(\\)", "do\\(\\)");
-            matcher = Pattern.compile("mul\\((\\d+),(\\d+)\\)").matcher(line);
-            while(matcher.find()) {
-                part2Sum += Integer.parseInt(matcher.group(1)) * Integer.parseInt(matcher.group(2));
-            }
+            part2Sum += getSum(line);
         }
         System.out.println("Part 1: " + part1Sum);
         System.out.println("Part 2: " + part2Sum);
+    }
+
+    private static int getSum(String line) {
+        int sum = 0;
+        Matcher matcher = Pattern.compile("mul\\((\\d+),(\\d+)\\)").matcher(line);
+        while(matcher.find()) {
+            sum += Integer.parseInt(matcher.group(1)) * Integer.parseInt(matcher.group(2));
+        }
+        return sum;
     }
 }
