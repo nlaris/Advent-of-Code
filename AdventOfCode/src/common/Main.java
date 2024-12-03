@@ -1,25 +1,36 @@
 package common;
 
-import AoC2021.Runner2021;
-import AoC2023.Runner2023;
-import AoC2024.Runner2024;
-
-import java.io.IOException;
-import java.util.HashMap;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 
 public class Main {
 
-    private static final HashMap<Integer, Runner> runners = new HashMap<>() {{
-        put(2021, new Runner2021());
-        put(2023, new Runner2023());
-        put(2024, new Runner2024());
-    }};
-
-    public static void main(String[] args) throws IOException {
-        runDay(2024, 3);
+    public static void main(String[] args) {
+        runLatestDay();
     }
 
-    private static void runDay(final int year, final int day) throws IOException {
-        runners.get(year).runDay(day);
+    private static void runDay(final int year, final int day) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("inputs/" + year + "/day" + day + ".txt"))) {
+            Class<?> dayClass = Class.forName("years.AoC" + year + ".Day" + day);
+            Object dayInstance = dayClass.getDeclaredConstructor().newInstance();
+            dayClass.getMethod("run", BufferedReader.class).invoke(dayInstance, reader);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void runLatestDay() {
+        File[] years = new File("src/years").listFiles();
+        if (years != null) {
+            File latestYearDirectory = years[years.length - 1];
+            int year = Integer.parseInt(latestYearDirectory.getName().replace("AoC", ""));
+            File[] days = new File(latestYearDirectory.getAbsolutePath()).listFiles();
+            if (days != null) {
+                final String latestDayClass = days[days.length - 1].getName();
+                int day = Integer.parseInt(latestDayClass.replace("Day", "").replace(".java", ""));
+                runDay(year, day);
+            }
+        }
     }
 }
