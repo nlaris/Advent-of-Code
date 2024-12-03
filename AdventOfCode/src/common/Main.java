@@ -14,9 +14,12 @@ public class Main {
         try (BufferedReader reader = new BufferedReader(new FileReader("inputs/" + year + "/day" + day + ".txt"))) {
             Class<?> dayClass = Class.forName("years.AoC" + year + ".Day" + day);
             Object dayInstance = dayClass.getDeclaredConstructor().newInstance();
+            long time = System.currentTimeMillis();
+            System.out.println(year + " Day " + day);
             dayClass.getMethod("run", BufferedReader.class).invoke(dayInstance, reader);
+            System.out.println((System.currentTimeMillis() - time) + " ms\n");
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
