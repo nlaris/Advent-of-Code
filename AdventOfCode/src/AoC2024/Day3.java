@@ -17,7 +17,7 @@ public class Day3 implements Day {
             part1Sum += getSum(line);
             line = (startEnabled ? "do()" : "don't()") + line;
             startEnabled = line.lastIndexOf("don't()") < line.lastIndexOf("do()");
-            part2Sum += getSum(line + "do()".replaceAll("don't\\(\\)(.*?)do\\(\\)", ":)"));
+            part2Sum += getSum((line + "do()").replaceAll("don't\\(\\)(.*?)do\\(\\)", ":)"));
         }
         System.out.println("Part 1: " + part1Sum);
         System.out.println("Part 2: " + part2Sum);
