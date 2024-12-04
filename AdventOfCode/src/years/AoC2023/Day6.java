@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-// https://adventofcode.com/2023/day/6
 public class Day6 implements Day {
 
     @Override

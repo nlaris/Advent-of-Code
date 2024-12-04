@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.HashMap;
 
-// https://adventofcode.com/2023/day/2
 public class Day2 implements Day {
 
     private final HashMap<String, Integer> maxColorCount = new HashMap<>() {{

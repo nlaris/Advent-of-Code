@@ -8,7 +8,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-// https://adventofcode.com/2021/day/8
 public class Day8 implements Day {
 
     private final List<String> numberInputs = new ArrayList<>();

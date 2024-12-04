@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// https://adventofcode.com/2023/day/5
 public class Day5 implements Day {
 
     private List<Long> seeds = new ArrayList<>();

@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-// https://adventofcode.com/2023/day/3
 public class Day3 implements Day {
 
     private final ArrayList<String> engine = new ArrayList<>();

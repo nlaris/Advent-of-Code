@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.PriorityQueue;
 
-// https://adventofcode.com/2021/day/15
 public class Day15 implements Day {
 
     private Spot[][] map;

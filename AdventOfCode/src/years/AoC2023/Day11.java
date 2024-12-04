@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-// https://adventofcode.com/2023/day/11
 public class Day11 implements Day {
 
     private final ArrayList<int[]> galaxies = new ArrayList<>();

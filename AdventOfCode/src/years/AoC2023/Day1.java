@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.HashMap;
 
-// https://adventofcode.com/2023/day/1
 public class Day1 implements Day {
 
     private final HashMap<String, Integer> digits = new HashMap<>() {{

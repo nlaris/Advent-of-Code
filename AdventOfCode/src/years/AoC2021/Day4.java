@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// https://adventofcode.com/2021/day/4
 public class Day4 implements Day {
 
     private final List<Board> boards = new ArrayList<>();

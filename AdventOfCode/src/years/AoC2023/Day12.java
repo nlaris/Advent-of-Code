@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// https://adventofcode.com/2023/day/12
 public class Day12 implements Day {
 
     @Override

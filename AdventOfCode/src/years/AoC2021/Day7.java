@@ -10,7 +10,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-// https://adventofcode.com/2021/day/7
 public class Day7 implements Day {
 
     private List<Integer> inputs = new ArrayList<>();

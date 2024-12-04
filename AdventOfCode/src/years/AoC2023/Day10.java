@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-// https://adventofcode.com/2023/day/10
 public class Day10 implements Day {
 
     private final ArrayList<String> map = new ArrayList<>();

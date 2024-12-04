@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-// https://adventofcode.com/2021/day/16
 public class Day16 implements Day {
 
     private String binaryCode = "";

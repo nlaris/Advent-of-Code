@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// https://adventofcode.com/2023/day/9
 public class Day9 implements Day {
 
     private int part1Sum = 0;

@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
 
-// https://adventofcode.com/2021/day/14
 public class Day14 implements Day {
 
     private final HashMap<String, Character> mappings = new HashMap<>();

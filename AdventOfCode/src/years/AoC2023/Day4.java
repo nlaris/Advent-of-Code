@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Stream;
 
-// https://adventofcode.com/2023/day/4
 public class Day4 implements Day {
 
     private final HashMap<Integer, Integer> ticketCount = new HashMap<>();

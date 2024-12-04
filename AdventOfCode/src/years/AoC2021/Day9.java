@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-// https://adventofcode.com/2021/day/9
 public class Day9 implements Day {
 
     private final ArrayList<int[]> points = new ArrayList<>();
