@@ -10,7 +10,6 @@ import java.util.List;
 
 public class Day12 implements Day {
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         int part1Sum = 0;
         String line;

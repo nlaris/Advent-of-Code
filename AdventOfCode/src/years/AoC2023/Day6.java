@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Day6 implements Day {
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         final String timeLine = reader.readLine().replaceAll("[^-?0-9]+", " ").trim();
         final String distanceLine = reader.readLine().replaceAll("[^-?0-9]+", " ").trim();

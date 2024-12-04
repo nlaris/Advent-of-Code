@@ -13,7 +13,6 @@ public class Day9 implements Day {
     private int part1Sum = 0;
     private int part2Sum = 0;
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         String line;
         while ((line = reader.readLine()) != null) {

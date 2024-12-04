@@ -11,7 +11,6 @@ public class Day5 implements Day {
 
     private final HashMap<String, Integer> spots = new HashMap<>();
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         readInput(false, reader);
         System.out.println("Part 1: " + spots.entrySet().stream().filter(map -> map.getValue() > 1).toList().size());

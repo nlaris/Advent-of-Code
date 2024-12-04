@@ -21,7 +21,6 @@ public class Day4 implements Day {
             {0, 1}
     };
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         String line;
         int part1Sum = 0, part2Sum = 0;

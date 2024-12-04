@@ -24,7 +24,6 @@ public class Day10 implements Day {
     private int[] currentCoords;
     private int furthestSpot;
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         String line;
         int row = 0;

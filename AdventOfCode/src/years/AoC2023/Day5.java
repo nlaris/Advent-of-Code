@@ -17,7 +17,6 @@ public class Day5 implements Day {
     private Long locationPart2 = null;
     private int mappingIndex = 0;
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         seeds = Arrays.stream(reader.readLine().split(":")[1].trim().split(" ")).mapToLong(Long::parseLong).boxed().toList();
         reader.readLine();

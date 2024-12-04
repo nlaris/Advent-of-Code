@@ -10,7 +10,6 @@ public class Day3 implements Day {
 
     private final ArrayList<String> engine = new ArrayList<>();
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         String line;
         while ((line = reader.readLine()) != null) {

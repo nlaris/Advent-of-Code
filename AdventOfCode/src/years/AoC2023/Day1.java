@@ -23,7 +23,6 @@ public class Day1 implements Day {
     private int leftWordNum;
     private int rightWordNum;
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         int part1Sum = 0, part2Sum = 0;
         String line;

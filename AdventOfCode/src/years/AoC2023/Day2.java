@@ -14,7 +14,6 @@ public class Day2 implements Day {
         put("blue", 14);
     }};
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         int part1Sum = 0, part2Sum = 0;
         String line;

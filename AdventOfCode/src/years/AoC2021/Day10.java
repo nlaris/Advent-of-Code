@@ -25,7 +25,6 @@ public class Day10 implements Day {
     private final ArrayList<Long> incompleteRowScores = new ArrayList<>();
     private int part1Score = 0;
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         String line;
         while ((line = reader.readLine()) != null) {

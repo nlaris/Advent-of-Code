@@ -8,7 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Day3 implements Day {
-    @Override
+
     public void run(BufferedReader reader) throws IOException {
         int part1Sum = 0, part2Sum = 0;
         String line;
@@ -26,7 +26,7 @@ public class Day3 implements Day {
     private int getSum(String line) {
         int sum = 0;
         Matcher matcher = Pattern.compile("mul\\((\\d+),(\\d+)\\)").matcher(line);
-        while(matcher.find()) {
+        while (matcher.find()) {
             sum += Integer.parseInt(matcher.group(1)) * Integer.parseInt(matcher.group(2));
         }
         return sum;

@@ -12,7 +12,6 @@ public class Day4 implements Day {
 
     private final List<Board> boards = new ArrayList<>();
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         String line = reader.readLine();
         List<Integer> turns = Arrays.stream(line.split(","))

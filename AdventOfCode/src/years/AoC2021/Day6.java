@@ -11,7 +11,6 @@ public class Day6 implements Day {
 
     private long[] spawns = new long[9];
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         List<Integer> initialSpawns = Arrays.stream(reader.readLine().split(","))
                 .map(Integer::parseInt).toList();

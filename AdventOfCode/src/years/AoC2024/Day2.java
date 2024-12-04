@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 
 public class Day2 implements Day {
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         int part1Sum = 0, part2Sum = 0;
         String line;
@@ -26,7 +25,7 @@ public class Day2 implements Day {
     }
 
     private boolean reportValid(ArrayList<Integer> levels, boolean dampen) {
-        boolean increasing = levels.get(1) >  levels.get(0);
+        boolean increasing = levels.get(1) > levels.get(0);
         for (int i = 1; i < levels.size(); i++) {
             int diff = levels.get(i) - levels.get(i - 1);
             if (diff == 0 || Math.abs(diff) > 3 || diff > 0 ^ increasing) {

@@ -14,7 +14,6 @@ public class Day8 implements Day {
 
     private String instructions;
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         instructions = reader.readLine();
         reader.readLine();

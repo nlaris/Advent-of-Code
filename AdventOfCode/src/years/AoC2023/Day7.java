@@ -30,7 +30,6 @@ public class Day7 implements Day {
     private static final int FOUR_OF_A_KIND_SCORE = 6;
     private static final int FIVE_OF_A_KIND_SCORE = 7;
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         String line;
         while ((line = reader.readLine()) != null) {

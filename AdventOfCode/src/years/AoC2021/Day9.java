@@ -13,7 +13,6 @@ public class Day9 implements Day {
     private final ArrayList<String> checkedPoints = new ArrayList<>();
     private final ArrayList<Integer> biggestBasins = new ArrayList<>();
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         String line;
         while ((line = reader.readLine()) != null) {

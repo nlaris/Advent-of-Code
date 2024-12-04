@@ -13,7 +13,6 @@ public class Day11 implements Day {
     private boolean[] galaxyColumns;
     private boolean[] galaxyRows;
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         String line = reader.readLine();
         galaxyColumns = new boolean[line.length()];

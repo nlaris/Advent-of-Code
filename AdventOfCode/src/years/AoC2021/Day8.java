@@ -30,7 +30,6 @@ public class Day8 implements Day {
         put(9, 'f');
     }};
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         String line;
         while ((line = reader.readLine()) != null) {

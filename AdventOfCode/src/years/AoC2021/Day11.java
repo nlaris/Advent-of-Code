@@ -14,7 +14,6 @@ public class Day11 implements Day {
     private int stepNumber = 1;
     private int totalFlashes = 0;
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         String line;
         while ((line = reader.readLine()) != null) {

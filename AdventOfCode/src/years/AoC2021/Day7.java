@@ -14,7 +14,6 @@ public class Day7 implements Day {
 
     private List<Integer> inputs = new ArrayList<>();
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         inputs = Arrays.stream(reader.readLine().split(","))
                 .map(Integer::parseInt)

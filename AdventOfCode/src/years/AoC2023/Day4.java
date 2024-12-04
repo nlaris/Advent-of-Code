@@ -14,7 +14,6 @@ public class Day4 implements Day {
 
     private final HashMap<Integer, Integer> ticketCount = new HashMap<>();
 
-    @Override
     public void run(BufferedReader reader) throws IOException {
         int pointSum = 0;
         String line;
