@@ -41,29 +41,24 @@ public class Day4 implements Day {
     }
 
     private long findPart1(int c, int r) {
-        String[] foundWords = new String[8];
-        Arrays.fill(foundWords, "X");
-        for (int i = 1; i < 4; i++) {
-            for (int d = 0; d < directions.length; d++) {
-                int rDiff = directions[d][0] * i;
-                int cDiff = directions[d][1] * i;
-                foundWords[d] += findChar(c, r, rDiff, cDiff);
-            }
-        }
+        String[] foundWords = findWords(c, r, 8, 0, 3);
         return Arrays.stream(foundWords).filter("XMAS"::equals).count();
     }
 
     private long findPart2(int c, int r) {
-        String[] foundWords = new String[4];
+        String[] foundWords = findWords(c, r, 4, -1, 1);
+        return Arrays.stream(foundWords).filter("MAS"::equals).count() == 2 ? 1 : 0;
+    }
+
+    private String[] findWords(int c, int r, int count, int rangeA, int rangeB) {
+        String[] foundWords = new String[count];
         Arrays.fill(foundWords, "");
-        for (int i = -1; i <= 1; i++) {
-            for (int d = 0; d < 4; d++) {
-                int rDiff = directions[d][0] * i;
-                int cDiff = directions[d][1] * i;
-                foundWords[d] += findChar(c, r, rDiff, cDiff);
+        for (int i = rangeA; i <= rangeB; i++) {
+            for (int d = 0; d < count; d++) {
+                foundWords[d] += findChar(c, r, directions[d][0] * i, directions[d][1] * i);
             }
         }
-        return Arrays.stream(foundWords).filter("MAS"::equals).count() == 2 ? 1 : 0;
+        return foundWords;
     }
 
     private char findChar(int c, int r, int cDiff, int rDiff) {
