@@ -11,24 +11,24 @@ import java.util.stream.Collectors;
 
 public class Day5 implements Day {
 
-    private final ArrayList<int[]> rulesInput = new ArrayList<>();
-    private final ArrayList<ArrayList<Integer>> updatesInput = new ArrayList<>();
+    private final ArrayList<int[]> rules = new ArrayList<>();
+    private final ArrayList<ArrayList<Integer>> updates = new ArrayList<>();
 
     public void run(BufferedReader reader) throws IOException {
         String line;
         while ((line = reader.readLine()) != null && !line.isEmpty()) {
             String[] vals = line.split("\\|");
-            rulesInput.add(new int[]{Integer.parseInt(vals[0]), Integer.parseInt(vals[1])});
+            rules.add(new int[]{Integer.parseInt(vals[0]), Integer.parseInt(vals[1])});
         }
         while ((line = reader.readLine()) != null) {
             String[] vals = line.split(",");
-            updatesInput.add(Arrays.stream(vals)
+            updates.add(Arrays.stream(vals)
                     .mapToInt(Integer::parseInt)
                     .boxed()
                     .collect(Collectors.toCollection(ArrayList::new)));
         }
         int part1Sum = 0, part2Sum = 0;
-        for (ArrayList<Integer> update : updatesInput) {
+        for (ArrayList<Integer> update : updates) {
             ArrayList<Integer> sortedUpdate = new ArrayList<>(update);
             sortedUpdate.sort(pageComparator);
             if (sortedUpdate.equals(update)) {
@@ -42,9 +42,9 @@ public class Day5 implements Day {
     }
 
     private final Comparator<Integer> pageComparator = (p1, p2) -> {
-        if (rulesInput.stream().anyMatch(arr -> Arrays.equals(arr, new int[]{p1, p2}))) {
+        if (rules.stream().anyMatch(arr -> Arrays.equals(arr, new int[]{p1, p2}))) {
             return -1;
-        } else if (rulesInput.stream().anyMatch(arr -> Arrays.equals(arr, new int[]{p2, p1}))) {
+        } else if (rules.stream().anyMatch(arr -> Arrays.equals(arr, new int[]{p2, p1}))) {
             return 1;
         }
         return 0;
