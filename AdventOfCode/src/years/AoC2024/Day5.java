@@ -4,13 +4,10 @@ import common.Day;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class Day5 implements Day {
 
