@@ -49,32 +49,35 @@ public class Day9 implements Day {
     private long part2(String line) {
         long sum = 0;
         int index = 0;
-        ArrayList<Integer> countedFiles = new ArrayList<>();
-        for (int i = 0; i < line.length() && countedFiles.size() <= line.length() / 2; i++) {
+        ArrayList<Integer> pendingFiles = IntStream.iterate(0, n -> n <= line.length() / 2, n -> n + 1)
+                .boxed()
+                .collect(Collectors.toCollection(ArrayList::new));
+        for (int i = 0; i < line.length() && pendingFiles.size() > 0; i++) {
             int num = Character.getNumericValue(line.charAt(i));
-            int j = 0, id = i / 2;
+            int j = 0;
             if (i % 2 == 0) {
-                if (!countedFiles.contains(id)) {
+                int id = i / 2;
+                if (pendingFiles.contains(id)) {
                     while (j < num) {
                         sum += (long) index * (id);
                         j++;
                         index++;
                     }
-                    countedFiles.add(id);
+                    pendingFiles.remove(Integer.valueOf(id));
                 } else {
                     index += num;
                 }
             } else {
-                int endMarker = 1;
-                while (j < num && endMarker <= line.length()) {
-                    while (endMarker <= line.length() && (countedFiles.contains((line.length() - endMarker) / 2) || (num - j) < Character.getNumericValue(line.charAt(line.length() - endMarker)))) {
-                        endMarker += 2;
+                int endMarker = pendingFiles.get(pendingFiles.size() - 1) * 2;
+                while (j < num && endMarker >= 0) {
+                    while (endMarker >= 0 && (!pendingFiles.contains(endMarker / 2) || (num - j) < Character.getNumericValue(line.charAt(endMarker)))) {
+                        endMarker -= 2;
                     }
-                    if (endMarker <= line.length()) {
-                        countedFiles.add((line.length() - endMarker) / 2);
-                        int endCount = Character.getNumericValue(line.charAt(line.length() - endMarker)) + j;
+                    if (endMarker >= 0) {
+                        pendingFiles.remove(Integer.valueOf(endMarker / 2));
+                        int endCount = Character.getNumericValue(line.charAt(endMarker)) + j;
                         while (j < endCount) {
-                            sum += (long) index * ((line.length() - endMarker) / 2);
+                            sum += (long) index * (endMarker / 2);
                             j++;
                             index++;
                         }
