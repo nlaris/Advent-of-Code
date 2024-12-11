@@ -22,9 +22,7 @@ public class Day11 implements Day {
 
     private long getScore(String r, int times) {
         if (times == 0) return 1;
-        if (mappings.containsKey(r + " " + times)) {
-            return mappings.get(r + " " + times);
-        }
+        if (mappings.containsKey(r + " " + times)) return mappings.get(r + " " + times);
         ArrayList<String> newRocks = new ArrayList<>();
         long sum = 0;
         if (r.equals("0")) {

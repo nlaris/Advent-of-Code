@@ -3,6 +3,7 @@ package common;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.Arrays;
 
 public class Main {
 
@@ -30,8 +31,10 @@ public class Main {
             int year = Integer.parseInt(latestYearDirectory.getName().replace("AoC", ""));
             File[] days = new File(latestYearDirectory.getAbsolutePath()).listFiles();
             if (days != null) {
-                final String latestDayClass = days[days.length - 1].getName();
-                int day = Integer.parseInt(latestDayClass.replace("Day", "").replace(".java", ""));
+                int day = Arrays.stream(days)
+                        .mapToInt(file -> Integer.parseInt(file.getName().replaceAll("\\D", "")))
+                        .max()
+                        .orElse(-1);
                 runDay(year, day);
             }
         }
