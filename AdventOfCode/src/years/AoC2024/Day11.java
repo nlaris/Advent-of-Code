@@ -11,9 +11,8 @@ public class Day11 implements Day {
     private final HashMap<String, Long> mappings = new HashMap<>();
 
     public void run(BufferedReader reader) throws IOException {
-        ArrayList<String> rocks = new ArrayList<>(Arrays.asList(reader.readLine().split(" ")));
         long part1Sum = 0, part2Sum = 0;
-        for (String rock : rocks) {
+        for (String rock : reader.readLine().split(" ")) {
             part1Sum += getScore(rock, 25);
             part2Sum += getScore(rock, 75);
         }
