@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3v0wk8xcka8w"]
+
+[ext_resource type="Script" path="res://Scripts/line.gd" id="1_xjm00"]
+
+[node name="Line" type="Node2D"]
+script = ExtResource("1_xjm00")
+
+[node name="Line2D" type="Line2D" parent="."]
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
