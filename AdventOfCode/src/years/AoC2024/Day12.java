@@ -5,6 +5,7 @@ import common.Day;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class Day12 implements Day {
@@ -25,7 +26,7 @@ public class Day12 implements Day {
         for (int r = 0; r < lines.size(); r++) {
             String line = lines.get(r);
             for (int c = 0; c < line.length(); c++) {
-                if (!checked.contains(c + "|" + r)) {
+                if (!checked.contains(getKey(new int[]{c, r}))) {
                     calculateRegionPrice(c, r);
                 }
             }
@@ -38,7 +39,7 @@ public class Day12 implements Day {
         final ArrayList<int[]> fences = new ArrayList<>();
         char p = lines.get(startRow).charAt(startCol);
         queue.add(new int[]{startCol, startRow});
-        checked.add(startCol + "|" + startRow);
+        checked.add(getKey(new int[]{startCol, startRow}));
         int perimeter = 0, area = 0;
         while (!queue.isEmpty()) {
             area++;
@@ -50,7 +51,7 @@ public class Day12 implements Day {
                 if (needsFence(p, nextC, nextR)) {
                     perimeter++;
                     fences.add(new int[]{nextC, nextR, d});
-                } else if (!checked.contains(nextC + "|" + nextR)) {
+                } else if (!checked.contains(getKey(new int[]{nextC, nextR}))) {
                     checked.add(nextC + "|" + nextR);
                     queue.add(new int[]{nextC, nextR});
                 }
@@ -64,8 +65,7 @@ public class Day12 implements Day {
         final ArrayList<String> checked = new ArrayList<>();
         int sides = 0;
         for (int i = 0; i < fences.size(); i++) {
-            int[] thisFence = fences.get(i);
-            if (!checked.contains(thisFence[0] + "|" + thisFence[1] + "|" + thisFence[2])) {
+            if (!checked.contains(getKey(fences.get(i)))) {
                 ArrayList<int[]> fencesToCheck = new ArrayList<>();
                 fencesToCheck.add(fences.get(i));
                 while (!fencesToCheck.isEmpty()) {
@@ -73,8 +73,8 @@ public class Day12 implements Day {
                     int c = fence[0];
                     int r = fence[1];
                     int direction = fence[2];
-                    if (!checked.contains(c + "|" + r + "|" + direction)) {
-                        checked.add(c + "|" + r + "|" + direction);
+                    if (!checked.contains(getKey(fence))) {
+                        checked.add(getKey(fence));
                         ArrayList<int[]> matchingFences;
                         if (direction % 2 == 1) {
                             int minBound = r - 1, maxBound = r + 1;
@@ -82,7 +82,7 @@ public class Day12 implements Day {
                                     .filter(f -> f[2] == direction
                                             && f[0] == c
                                             && (f[1] == minBound || f[1] == maxBound)
-                                            && !checked.contains(f[0] + "|" + f[1] + "|" + f[2]))
+                                            && !checked.contains(getKey(f)))
                                     .collect(Collectors.toCollection(ArrayList::new));
                         } else {
                             int minBound = c - 1, maxBound = c + 1;
@@ -90,7 +90,7 @@ public class Day12 implements Day {
                                     .filter(f -> f[2] == direction
                                             && f[1] == r
                                             && (f[0] == minBound || f[0] == maxBound)
-                                            && !checked.contains(f[0] + "|" + f[1] + "|" + f[2]))
+                                            && !checked.contains(getKey(f)))
                                     .collect(Collectors.toCollection(ArrayList::new));
                         }
                         fencesToCheck.addAll(matchingFences);
@@ -105,5 +105,11 @@ public class Day12 implements Day {
     private boolean needsFence(char p, int c, int r) {
         if (r < 0 || r >= lines.size() || c < 0 || c >= lines.get(0).length()) return true;
         return lines.get(r).charAt(c) != p;
+    }
+
+    private String getKey(int[] key) {
+        return Arrays.stream(key)
+                .mapToObj(String::valueOf)
+                .collect(Collectors.joining("|"));
     }
 }
