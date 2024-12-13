@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3ot0sequc0bg"]
+
+[ext_resource type="PackedScene" uid="uid://5xibjgewjyd3" path="res://Materials/StylizedFences/Models/FenceBoard2.fbx" id="1_3uf5q"]
+[ext_resource type="Texture2D" uid="uid://bs7g7mpwc7mvw" path="res://Materials/StylizedFences/Textures/FenceBoard2Texture.png" id="2_jtkxp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_te1tp"]
+albedo_color = Color(0.560955, 0.560955, 0.560955, 1)
+albedo_texture = ExtResource("2_jtkxp")
+
+[node name="FenceBoard2" instance=ExtResource("1_3uf5q")]
+
+[node name="FenceBoard2Lp" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_te1tp")

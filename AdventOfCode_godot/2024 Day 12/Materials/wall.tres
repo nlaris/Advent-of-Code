@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ci6gax5ohhtbq"]
+
+[ext_resource type="Texture2D" uid="uid://d0rkl77o8g6aw" path="res://Materials/StylizedFences/Textures/PostDiffuseTexture.png" id="1_ub1bs"]
+
+[resource]
+albedo_color = Color(0.435192, 0.435192, 0.435192, 1)
+albedo_texture = ExtResource("1_ub1bs")
