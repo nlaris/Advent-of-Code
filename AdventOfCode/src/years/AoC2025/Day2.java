@@ -18,22 +18,17 @@ public class Day2 implements Day {
       long current = ids[0];
       while (current <= ids[1]) {
         String id = String.valueOf(current);
-        ArrayList<Integer> divisors = getDivisors(id.length());
-        if (divisors.size() > 0) {
-          for (int divisor : divisors) {
-            String check = id.replace(id.substring(0, divisor), "");
-            if (check.length() == 0) {
-              part2Sum += current;
-              if (divisor == id.length() / 2 && id.length() % 2 == 0) {
-                part1Sum += current;
-              }
-              break;
+        for (int divisor : getDivisors(id.length())) {
+          String check = id.replace(id.substring(0, divisor), "");
+          if (check.length() == 0) {
+            part2Sum += current;
+            if (divisor == id.length() / 2 && id.length() % 2 == 0) {
+              part1Sum += current;
             }
+            break;
           }
-          current ++;
-        } else {
-          current = (long) Math.pow(10, id.length());
         }
+        current ++;
       }
     }
     System.out.println("Part 1: " + part1Sum);
