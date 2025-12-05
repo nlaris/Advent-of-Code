@@ -23,7 +23,13 @@ public class Day5 implements Day{
         }
         ranges.add(range);
       } else if (!line.isEmpty()) {
-        part1Sum += getFreshness(Long.parseLong(line), ranges);
+        long value = Long.parseLong(line);
+        for (long[] range : ranges) {
+          if (value >= range[0] && value <= range[1]) {
+            part1Sum++;
+            break;
+          }
+        }
       }
     }
     for (long[] range : ranges) {
@@ -31,14 +37,5 @@ public class Day5 implements Day{
     }
     System.out.println("Part 1: " + part1Sum);
     System.out.println("Part 2: " + part2Sum);
-  }
-
-  private int getFreshness(long long1, ArrayList<long[]> ranges) {
-    for (long[] range : ranges) {
-      if (long1 >= range[0] && long1 <= range[1]) {
-        return 1;
-      }
-    }
-    return 0;
   }
 }
