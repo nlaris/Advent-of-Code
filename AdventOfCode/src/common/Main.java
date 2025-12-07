@@ -9,17 +9,16 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        //runAllDays();
-        runDay(2024, 12);
+        runLatestDay();
     }
 
     private static void runDay(final int year, final int day) {
         try (BufferedReader reader = new BufferedReader(new FileReader("inputs/" + year + "/day" + day + ".txt"))) {
             Class<?> dayClass = Class.forName("years.AoC" + year + ".Day" + day);
             Object dayInstance = dayClass.getDeclaredConstructor().newInstance();
-            long time = System.currentTimeMillis();
             System.out.println(year + " Day " + day);
             ArrayList<String> input = Utils.getInput(reader);
+            long time = System.currentTimeMillis();
             dayClass.getMethod("run", ArrayList.class).invoke(dayInstance, input);
             System.out.println((System.currentTimeMillis() - time) + " ms\n");
         } catch (Exception e) {
