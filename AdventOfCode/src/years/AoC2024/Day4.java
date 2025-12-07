@@ -2,7 +2,6 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -20,7 +19,7 @@ public class Day4 implements Day {
             {0, 1}
     };
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         int part1Sum = 0, part2Sum = 0;
         map.addAll(input);
         for (int r = 0; r < map.size(); r++) {

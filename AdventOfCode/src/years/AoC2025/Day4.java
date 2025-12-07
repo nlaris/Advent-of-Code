@@ -1,6 +1,5 @@
 package years.AoC2025;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import common.Day;
@@ -8,7 +7,7 @@ import common.Day;
 public class Day4 implements Day {
   private int part1Sum = 0, part2Sum = 0;
   @Override
-  public void run(ArrayList<String> input) throws IOException {
+  public void run(ArrayList<String> input) {
     for (int i = 0; i < input.size(); i++) {
       for (int j = 0; j < input.get(i).length(); j++) {
         checkSpot(input, i, j, false);

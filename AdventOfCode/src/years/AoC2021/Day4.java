@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +10,7 @@ public class Day4 implements Day {
 
     private final List<Board> boards = new ArrayList<>();
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         List<Integer> turns = Arrays.stream(input.get(0).split(","))
                 .map(Integer::parseInt).toList();
         int i = 2;

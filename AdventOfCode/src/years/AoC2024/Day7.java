@@ -2,12 +2,11 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Day7 implements Day {
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         long part1Sum = 0, part2Sum = 0;
         for (String line : input) {
             long target = Long.parseLong(line.split(":")[0]);

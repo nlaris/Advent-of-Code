@@ -2,7 +2,6 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,7 +17,7 @@ public class Day6 implements Day {
             {-1, 0}
     };
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         int counter = 0;
         final ArrayList<Boolean[]> colliders = new ArrayList<>();
         for (String line : input) {

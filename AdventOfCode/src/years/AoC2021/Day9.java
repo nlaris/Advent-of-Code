@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -12,7 +11,7 @@ public class Day9 implements Day {
     private final ArrayList<String> checkedPoints = new ArrayList<>();
     private final ArrayList<Integer> biggestBasins = new ArrayList<>();
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         for (String line : input) {
             points.add(Arrays.stream(line.split("")).mapToInt(Integer::parseInt).toArray());
         }

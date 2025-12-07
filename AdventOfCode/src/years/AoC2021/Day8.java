@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -29,7 +28,7 @@ public class Day8 implements Day {
         put(9, 'f');
     }};
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         for (String line : input) {
             final String[] displays = line.split(" \\| ");
             numberInputs.add(displays[0]);

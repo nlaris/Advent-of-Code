@@ -3,7 +3,6 @@ package years.AoC2024;
 import common.Day;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -21,7 +20,7 @@ public class Day12 implements Day {
     private final ArrayList<int[]> queue = new ArrayList<>();
     private int part1Sum = 0, part2Sum = 0;
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         lines = new ArrayList<>(input);
         for (int r = 0; r < input.size(); r++) {
             String line = input.get(r);

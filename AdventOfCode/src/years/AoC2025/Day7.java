@@ -1,6 +1,5 @@
 package years.AoC2025;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -12,7 +11,7 @@ public class Day7 implements Day {
   private HashMap<String, Long> collisions = new HashMap<>();
 
   @Override
-  public void run(ArrayList<String> input) throws IOException {
+  public void run(ArrayList<String> input) {
     int start = input.get(0).indexOf('S');
     System.out.println("Part 1: " + getNumCollisions(input, start, 1));
     System.out.println("Part 2: " + getNumTimelines(input, start, 1));

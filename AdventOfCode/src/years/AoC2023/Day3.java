@@ -2,14 +2,13 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Day3 implements Day {
 
     private final ArrayList<String> engine = new ArrayList<>();
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         engine.addAll(input);
         System.out.println("Part 1: " + getEngineSum());
         System.out.println("Part 2: " + getGearRatioSum());

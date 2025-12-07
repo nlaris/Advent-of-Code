@@ -1,12 +1,11 @@
 package years.AoC2025;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import common.Day;
 
 public class Day1 implements Day {
-  public void run(ArrayList<String> input) throws IOException {
+  public void run(ArrayList<String> input) {
     int currentNum = 50, part1Sum = 0, part2Sum = 0;
     for (String line : input) {
       int rotation = Integer.parseInt(line.substring(1));

@@ -2,7 +2,6 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -29,7 +28,7 @@ public class Day7 implements Day {
     private static final int FOUR_OF_A_KIND_SCORE = 6;
     private static final int FIVE_OF_A_KIND_SCORE = 7;
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         for (String line : input) {
             String[] hand = line.split(" ");
             hands.add(hand[0]);

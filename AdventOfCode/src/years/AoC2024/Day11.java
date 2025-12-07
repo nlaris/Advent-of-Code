@@ -2,7 +2,6 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -10,7 +9,7 @@ public class Day11 implements Day {
 
     private final HashMap<String, Long> mappings = new HashMap<>();
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         long part1Sum = 0, part2Sum = 0;
         for (String rock : input.get(0).split(" ")) {
             part1Sum += getScore(rock, 25);

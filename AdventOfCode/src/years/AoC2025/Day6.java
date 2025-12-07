@@ -1,6 +1,5 @@
 package years.AoC2025;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import common.Day;
@@ -8,7 +7,7 @@ import common.Day;
 public class Day6 implements Day{
 
   @Override
-  public void run(ArrayList<String> input) throws IOException {
+  public void run(ArrayList<String> input) {
     ArrayList<ArrayList<String>> equations = new ArrayList<>();
     ArrayList<Character> operators = new ArrayList<>();
     ArrayList<Integer> spaces = new ArrayList<>();

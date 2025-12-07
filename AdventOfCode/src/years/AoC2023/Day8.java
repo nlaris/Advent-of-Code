@@ -2,7 +2,6 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -13,7 +12,7 @@ public class Day8 implements Day {
 
     private String instructions;
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         instructions = input.get(0);
         for (int i = 2; i < input.size(); i++) {
             String line = input.get(i);

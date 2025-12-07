@@ -2,14 +2,13 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class Day2 implements Day {
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         int part1Sum = 0, part2Sum = 0;
         for (String line : input) {
             ArrayList<Integer> levels = Arrays.stream(line.split("\\s+"))

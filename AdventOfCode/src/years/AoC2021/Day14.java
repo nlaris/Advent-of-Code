@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -13,7 +12,7 @@ public class Day14 implements Day {
     private final HashMap<Character, Long> occurrences = new HashMap<>();
     private HashMap<String, Long> codePairs = new HashMap<>();
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         final String code = input.get(0);
         occurrences.put(code.charAt(0), 1L);
         for (int c = 1; c < code.length(); c++) {

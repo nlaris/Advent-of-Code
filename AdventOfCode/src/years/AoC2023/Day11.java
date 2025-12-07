@@ -2,7 +2,6 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Day11 implements Day {
@@ -12,7 +11,7 @@ public class Day11 implements Day {
     private boolean[] galaxyColumns;
     private boolean[] galaxyRows;
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         galaxyColumns = new boolean[input.get(0).length()];
         galaxyRows = new boolean[input.get(0).length()];
         int row = 0;

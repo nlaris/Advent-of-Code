@@ -2,7 +2,6 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -13,7 +12,7 @@ public class Day1 implements Day {
     private final ArrayList<Integer> list2 = new ArrayList<>();
     private final HashMap<Integer, Integer> list2Occurrences = new HashMap<>();
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         int part1Sum = 0, part2Sum = 0;
         for (String line : input) {
             String[] vals = line.split("   ");

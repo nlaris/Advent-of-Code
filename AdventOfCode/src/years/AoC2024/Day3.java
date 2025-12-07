@@ -2,14 +2,13 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Day3 implements Day {
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         int part1Sum = 0, part2Sum = 0;
         boolean startEnabled = true;
         for (String line : input) {

@@ -1,6 +1,5 @@
 package years.AoC2025;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -10,7 +9,7 @@ import common.Day;
 
 public class Day2 implements Day {
   private Map<Integer, ArrayList<Integer>> divisorsCache = new HashMap<>();
-  public void run(ArrayList<String> input) throws IOException {
+  public void run(ArrayList<String> input) {
     long part1Sum = 0, part2Sum = 0;
     for (String entry : input.get(0).split(",")) {
       Long[] ids = Arrays.stream(entry.split("-")).map(Long::parseLong).toArray(Long[]::new);

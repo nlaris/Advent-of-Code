@@ -1,13 +1,12 @@
 package years.AoC2025;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import common.Day;
 
 public class Day3 implements Day {
   @Override
-  public void run(ArrayList<String> input) throws IOException {
+  public void run(ArrayList<String> input) {
     long part1Sum = 0, part2Sum = 0;
     for (String line : input) {
       part1Sum += getJoltage(line, 2, "");

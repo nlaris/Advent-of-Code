@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -24,7 +23,7 @@ public class Day10 implements Day {
     private final ArrayList<Long> incompleteRowScores = new ArrayList<>();
     private int part1Score = 0;
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         for (String line : input) {
             parseLine(line);
         }

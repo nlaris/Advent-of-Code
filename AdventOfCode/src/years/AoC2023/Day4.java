@@ -2,7 +2,6 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -13,7 +12,7 @@ public class Day4 implements Day {
 
     private final HashMap<Integer, Integer> ticketCount = new HashMap<>();
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         int pointSum = 0;
         for (String line : input) {
             pointSum += calculatePoints(line);

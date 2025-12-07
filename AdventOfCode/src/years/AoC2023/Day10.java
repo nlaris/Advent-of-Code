@@ -2,7 +2,6 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +22,7 @@ public class Day10 implements Day {
     private int[] currentCoords;
     private int furthestSpot;
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         int row = 0;
         for (String line : input) {
             if (line.contains("S")) currentCoords = new int[]{line.indexOf('S'), row};

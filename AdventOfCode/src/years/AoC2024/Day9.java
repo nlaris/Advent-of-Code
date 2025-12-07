@@ -2,14 +2,13 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Day9 implements Day {
     @Override
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         String line = input.get(0);
         System.out.println("Part 1: " + part1(line));
         System.out.println("Part 2: " + part2(line));

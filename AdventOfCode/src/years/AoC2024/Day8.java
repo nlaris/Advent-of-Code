@@ -2,7 +2,6 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -11,7 +10,7 @@ public class Day8 implements Day {
     private final HashMap<Character, ArrayList<int[]>> mappings = new HashMap<>();
     int width, height;
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         int r = 0;
         for (String line : input) {
             width = line.length();

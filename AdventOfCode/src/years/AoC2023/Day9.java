@@ -2,7 +2,6 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +11,7 @@ public class Day9 implements Day {
     private int part1Sum = 0;
     private int part2Sum = 0;
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         for (String line : input) {
             getExtrapolatedValues(Arrays.stream(line.split(" ")).mapToInt(Integer::parseInt).boxed().toList());
         }

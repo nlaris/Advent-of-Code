@@ -2,14 +2,13 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Day6 implements Day {
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         final String timeLine = input.get(0).replaceAll("[^-?0-9]+", " ").trim();
         final String distanceLine = input.get(1).replaceAll("[^-?0-9]+", " ").trim();
         List<Integer> part1Times = Arrays.stream(timeLine.split(" ")).mapToInt(Integer::parseInt).boxed().toList();

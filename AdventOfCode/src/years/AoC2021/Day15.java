@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
@@ -12,7 +11,7 @@ public class Day15 implements Day {
     private int mapWidth;
     private int mapLength;
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         readInput(false, input);
         System.out.println("Part 1: " + getShortestPath());
         readInput(true, input);
@@ -48,7 +47,7 @@ public class Day15 implements Day {
         }
     }
 
-    private void readInput(final boolean part2, final ArrayList<String> input) throws IOException {
+    private void readInput(final boolean part2, final ArrayList<String> input) {
         mapLength = input.size();
         String line = input.get(0);
         mapWidth = line.length();

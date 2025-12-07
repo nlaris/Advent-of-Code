@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -13,7 +12,7 @@ public class Day11 implements Day {
     private int stepNumber = 1;
     private int totalFlashes = 0;
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         for (String line : input) {
             inputs.add(Arrays.stream(line.split("")).mapToInt(Integer::parseInt).toArray());
         }

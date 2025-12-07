@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -10,7 +9,7 @@ public class Day12 implements Day {
 
     private final HashMap<String, ArrayList<String>> mappings = new HashMap<>();
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         for (String line : input) {
             final String[] points = line.split("-");
             addMapping(points[0], points[1]);

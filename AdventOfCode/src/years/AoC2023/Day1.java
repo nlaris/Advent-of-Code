@@ -2,7 +2,6 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -23,7 +22,7 @@ public class Day1 implements Day {
     private int leftWordNum;
     private int rightWordNum;
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         int part1Sum = 0, part2Sum = 0;
         for (String line : input) {
             part1Sum += (getPart1CalibrationValue(line));

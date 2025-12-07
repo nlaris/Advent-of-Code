@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Day16 implements Day {
@@ -10,7 +9,7 @@ public class Day16 implements Day {
     private String binaryCode = "";
     private int versionSum;
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         final String inputLine = input.get(0);
         for (char c : inputLine.toCharArray()) {
             binaryCode = binaryCode.concat(String.format("%4s", Integer.toBinaryString(Character.getNumericValue(c))).replaceAll(" ", "0"));

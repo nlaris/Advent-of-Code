@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -11,14 +10,14 @@ public class Day5 implements Day {
 
     private final HashMap<String, Integer> spots = new HashMap<>();
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         readInput(false, input);
         System.out.println("Part 1: " + spots.entrySet().stream().filter(map -> map.getValue() > 1).toList().size());
         readInput(true, input);
         System.out.println("Part 2: " + spots.entrySet().stream().filter(map -> map.getValue() > 1).toList().size());
     }
 
-    private void readInput(final boolean includeDiagonals, ArrayList<String> input) throws IOException {
+    private void readInput(final boolean includeDiagonals, ArrayList<String> input) {
         spots.clear();
         for (String line : input) {
             final String[] coords = line.split(" -> ");

@@ -2,7 +2,6 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +15,7 @@ public class Day5 implements Day {
     private Long locationPart2 = null;
     private int mappingIndex = 0;
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         seeds = Arrays.stream(input.get(0).split(":")[1].trim().split(" ")).mapToLong(Long::parseLong).boxed().toList();
         ArrayList<RangeMapping> currentMap = new ArrayList<>();
         for (int i = 3; i < input.size(); i++) {

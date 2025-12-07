@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.IOException;
 import java.util.*;
 
 public class Day13 implements Day {
@@ -10,7 +9,7 @@ public class Day13 implements Day {
     private final HashMap<Integer, Set<Integer>> dots = new HashMap<>();
     private final ArrayList<String> folds = new ArrayList<>();
 
-    public void run(ArrayList<String> input) throws IOException {
+    public void run(ArrayList<String> input) {
         int i = 0;
         while (!input.get(i).isEmpty()) {
             String line = input.get(i);
