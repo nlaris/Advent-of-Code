@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,18 +11,17 @@ public class Day4 implements Day {
 
     private final List<Board> boards = new ArrayList<>();
 
-    public void run(BufferedReader reader) throws IOException {
-        String line = reader.readLine();
-        List<Integer> turns = Arrays.stream(line.split(","))
+    public void run(ArrayList<String> input) throws IOException {
+        List<Integer> turns = Arrays.stream(input.get(0).split(","))
                 .map(Integer::parseInt).toList();
-        reader.readLine();
-        while ((line = reader.readLine()) != null) {
+        int i = 2;
+        while (i < input.size()) {
             final Board board = new Board();
-            for (int i = 0; i < 5; i++) {
-                board.addRow(i, Arrays.stream(line.split(" ")).filter(x -> !x.isEmpty()).toArray(String[]::new));
-                line = reader.readLine();
+            for (int j = 0; j < 5; j++) {
+                board.addRow(j, Arrays.stream(input.get(i + j).split(" ")).filter(x -> !x.isEmpty()).toArray(String[]::new));
             }
             boards.add(board);
+            i += 6;
         }
         boolean winnerFound = false;
         for (int turn : turns) {

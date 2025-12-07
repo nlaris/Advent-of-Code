@@ -2,7 +2,6 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,10 +13,9 @@ public class Day1 implements Day {
     private final ArrayList<Integer> list2 = new ArrayList<>();
     private final HashMap<Integer, Integer> list2Occurrences = new HashMap<>();
 
-    public void run(BufferedReader reader) throws IOException {
+    public void run(ArrayList<String> input) throws IOException {
         int part1Sum = 0, part2Sum = 0;
-        String line;
-        while ((line = reader.readLine()) != null) {
+        for (String line : input) {
             String[] vals = line.split("   ");
             list1.add(Integer.parseInt(vals[0]));
             list2.add(Integer.parseInt(vals[1]));

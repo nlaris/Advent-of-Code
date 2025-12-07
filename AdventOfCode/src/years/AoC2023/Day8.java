@@ -2,7 +2,6 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,11 +13,10 @@ public class Day8 implements Day {
 
     private String instructions;
 
-    public void run(BufferedReader reader) throws IOException {
-        instructions = reader.readLine();
-        reader.readLine();
-        String line;
-        while ((line = reader.readLine()) != null) {
+    public void run(ArrayList<String> input) throws IOException {
+        instructions = input.get(0);
+        for (int i = 2; i < input.size(); i++) {
+            String line = input.get(i);
             final String[] vals = line.replaceAll("[^A-Z0-9]+", " ").trim().split(" ");
             nodes.put(vals[0], new String[]{vals[1], vals[2]});
             if (vals[0].endsWith("A")) startingNodes.add(vals[0]);

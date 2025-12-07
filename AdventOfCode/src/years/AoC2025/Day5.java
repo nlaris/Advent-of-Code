@@ -1,17 +1,15 @@
 package years.AoC2025;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import common.Day;
 
 public class Day5 implements Day{
-  public void run(BufferedReader reader) throws IOException {
-    String line;
+  public void run(ArrayList<String> input) throws IOException {
     ArrayList<long[]> ranges = new ArrayList<long[]>();
     long part1Sum = 0, part2Sum = 0;
-    while ((line = reader.readLine()) != null) {
+    for (String line : input) {
       if (line.contains("-")) {
         long[] range = new long[] { Long.parseLong(line.split("-")[0]), Long.parseLong(line.split("-")[1]) };
         for (int i = 0; i < ranges.size(); i++) {

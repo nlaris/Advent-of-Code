@@ -2,16 +2,14 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Day7 implements Day {
-    public void run(BufferedReader reader) throws IOException {
-        String line;
+    public void run(ArrayList<String> input) throws IOException {
         long part1Sum = 0, part2Sum = 0;
-        while ((line = reader.readLine()) != null) {
+        for (String line : input) {
             long target = Long.parseLong(line.split(":")[0]);
             long[] values = Arrays.stream(line.split(": ")[1].split(" "))
                     .mapToLong(Long::parseLong)

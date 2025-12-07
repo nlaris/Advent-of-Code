@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,9 +24,8 @@ public class Day10 implements Day {
     private final ArrayList<Long> incompleteRowScores = new ArrayList<>();
     private int part1Score = 0;
 
-    public void run(BufferedReader reader) throws IOException {
-        String line;
-        while ((line = reader.readLine()) != null) {
+    public void run(ArrayList<String> input) throws IOException {
+        for (String line : input) {
             parseLine(line);
         }
         Collections.sort(incompleteRowScores);

@@ -2,7 +2,6 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,10 +9,9 @@ import java.util.stream.Collectors;
 
 public class Day2 implements Day {
 
-    public void run(BufferedReader reader) throws IOException {
+    public void run(ArrayList<String> input) throws IOException {
         int part1Sum = 0, part2Sum = 0;
-        String line;
-        while ((line = reader.readLine()) != null) {
+        for (String line : input) {
             ArrayList<Integer> levels = Arrays.stream(line.split("\\s+"))
                     .map(Integer::parseInt)
                     .collect(Collectors.toCollection(ArrayList::new));

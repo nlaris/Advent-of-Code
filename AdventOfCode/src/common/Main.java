@@ -3,12 +3,14 @@ package common;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
-        runLatestDay();
+        //runAllDays();
+        runDay(2024, 12);
     }
 
     private static void runDay(final int year, final int day) {
@@ -17,7 +19,8 @@ public class Main {
             Object dayInstance = dayClass.getDeclaredConstructor().newInstance();
             long time = System.currentTimeMillis();
             System.out.println(year + " Day " + day);
-            dayClass.getMethod("run", BufferedReader.class).invoke(dayInstance, reader);
+            ArrayList<String> input = Utils.getInput(reader);
+            dayClass.getMethod("run", ArrayList.class).invoke(dayInstance, input);
             System.out.println((System.currentTimeMillis() - time) + " ms\n");
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -36,6 +39,38 @@ public class Main {
                         .max()
                         .orElse(-1);
                 runDay(year, day);
+            }
+        }
+    }
+
+    private static void runAllDays() {
+        File[] years = new File("src/years").listFiles();
+        if (years != null) {
+            // Sort years to run them in order
+            Arrays.sort(years, (a, b) -> {
+                int yearA = Integer.parseInt(a.getName().replace("AoC", ""));
+                int yearB = Integer.parseInt(b.getName().replace("AoC", ""));
+                return Integer.compare(yearA, yearB);
+            });
+            
+            for (File yearDirectory : years) {
+                int year = Integer.parseInt(yearDirectory.getName().replace("AoC", ""));
+                File[] days = yearDirectory.listFiles();
+                if (days != null) {
+                    // Sort days to run them in order
+                    Arrays.sort(days, (a, b) -> {
+                        int dayA = Integer.parseInt(a.getName().replaceAll("\\D", ""));
+                        int dayB = Integer.parseInt(b.getName().replaceAll("\\D", ""));
+                        return Integer.compare(dayA, dayB);
+                    });
+                    
+                    for (File dayFile : days) {
+                        if (dayFile.getName().startsWith("Day") && dayFile.getName().endsWith(".java")) {
+                            int day = Integer.parseInt(dayFile.getName().replaceAll("\\D", ""));
+                            runDay(year, day);
+                        }
+                    }
+                }
             }
         }
     }

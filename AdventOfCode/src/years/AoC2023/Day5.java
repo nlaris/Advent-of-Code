@@ -2,7 +2,6 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,17 +16,15 @@ public class Day5 implements Day {
     private Long locationPart2 = null;
     private int mappingIndex = 0;
 
-    public void run(BufferedReader reader) throws IOException {
-        seeds = Arrays.stream(reader.readLine().split(":")[1].trim().split(" ")).mapToLong(Long::parseLong).boxed().toList();
-        reader.readLine();
-        reader.readLine();
-        String line;
+    public void run(ArrayList<String> input) throws IOException {
+        seeds = Arrays.stream(input.get(0).split(":")[1].trim().split(" ")).mapToLong(Long::parseLong).boxed().toList();
         ArrayList<RangeMapping> currentMap = new ArrayList<>();
-        while ((line = reader.readLine()) != null) {
+        for (int i = 3; i < input.size(); i++) {
+            String line = input.get(i);
             if (line.isEmpty()) {
                 mappings.add(currentMap);
                 currentMap = new ArrayList<>();
-                reader.readLine();
+                i++;
             } else {
                 RangeMapping rangeMapping = new RangeMapping(Arrays.stream(line.split(" ")).mapToLong(Long::parseLong).toArray());
                 currentMap.add(rangeMapping);

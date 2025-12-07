@@ -2,8 +2,8 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
@@ -13,16 +13,15 @@ public class Day14 implements Day {
     private final HashMap<Character, Long> occurrences = new HashMap<>();
     private HashMap<String, Long> codePairs = new HashMap<>();
 
-    public void run(BufferedReader reader) throws IOException {
-        final String code = reader.readLine();
+    public void run(ArrayList<String> input) throws IOException {
+        final String code = input.get(0);
         occurrences.put(code.charAt(0), 1L);
         for (int c = 1; c < code.length(); c++) {
             codePairs.compute(code.charAt(c - 1) + "" + code.charAt(c), (key, val) -> val == null ? 1 : val + 1);
             occurrences.compute(code.charAt(c), (key, val) -> val == null ? 1 : val + 1);
         }
-        reader.readLine();
-        String line;
-        while ((line = reader.readLine()) != null) {
+        for (int i = 2; i < input.size(); i++) {
+            String line = input.get(i);
             String[] mapping = line.split(" -> ");
             mappings.put(mapping[0], mapping[1].charAt(0));
         }

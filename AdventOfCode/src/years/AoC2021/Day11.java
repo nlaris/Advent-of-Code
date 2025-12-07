@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,9 +13,8 @@ public class Day11 implements Day {
     private int stepNumber = 1;
     private int totalFlashes = 0;
 
-    public void run(BufferedReader reader) throws IOException {
-        String line;
-        while ((line = reader.readLine()) != null) {
+    public void run(ArrayList<String> input) throws IOException {
+        for (String line : input) {
             inputs.add(Arrays.stream(line.split("")).mapToInt(Integer::parseInt).toArray());
         }
         while (takeStep()) {

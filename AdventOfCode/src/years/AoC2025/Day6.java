@@ -1,6 +1,5 @@
 package years.AoC2025;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -9,14 +8,12 @@ import common.Day;
 public class Day6 implements Day{
 
   @Override
-  public void run(BufferedReader reader) throws IOException {
-    String line;
-    ArrayList<String> input = new ArrayList<>();
+  public void run(ArrayList<String> input) throws IOException {
     ArrayList<ArrayList<String>> equations = new ArrayList<>();
     ArrayList<Character> operators = new ArrayList<>();
     ArrayList<Integer> spaces = new ArrayList<>();
     long part1Sum = 0, part2Sum = 0;
-    while ((line = reader.readLine()) != null) {
+    for (String line : input) {
       if (line.contains("*")) {
         for (String value : line.trim().split("\\s+")) {
           operators.add(value.charAt(0));
@@ -25,25 +22,27 @@ public class Day6 implements Day{
       } else {
         // Iteratively figure out where the "divider" is between numbers
         spaces = getSpaceIndices(line, spaces);
-        input.add(line);
       }
     }
-    for (String row : input) {
+    for (String line : input) {
+      if (line.contains("*")) break;
       // Do another pass over each row to append each number to our equations
       for (int i = 0; i <= spaces.size(); i++) {
         int firstSpace = i == 0 ? 0 : spaces.get(i - 1) + 1;
-        int secondSpace = i == spaces.size() ? row.length() : spaces.get(i);
-        equations.get(i).add(row.substring(firstSpace, secondSpace));
+        int secondSpace = i == spaces.size() ? line.length() : spaces.get(i);
+        equations.get(i).add(line.substring(firstSpace, secondSpace));
       }
     }
     for (int i = 0; i < equations.size(); i++) {
       ArrayList<String> equation = equations.get(i);
       boolean multiply = operators.get(i) == '*';
       long part1Total = multiply ? 1 : 0, part2Total = part1Total;
+      // Just iterate through each number for part 1
       for (String number : equations.get(i)) {
         long value = Long.parseLong(number.replace(" ", ""));
         part1Total = multiply ? part1Total * value : part1Total + value;
       }
+      // Go column by column for part 2
       for (int j = 0; j < equation.get(0).length(); j++) {
         String value = "";
         for (String number : equation) {

@@ -2,8 +2,8 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -11,17 +11,16 @@ public class Day5 implements Day {
 
     private final HashMap<String, Integer> spots = new HashMap<>();
 
-    public void run(BufferedReader reader) throws IOException {
-        readInput(false, reader);
+    public void run(ArrayList<String> input) throws IOException {
+        readInput(false, input);
         System.out.println("Part 1: " + spots.entrySet().stream().filter(map -> map.getValue() > 1).toList().size());
-        readInput(true, reader);
+        readInput(true, input);
         System.out.println("Part 2: " + spots.entrySet().stream().filter(map -> map.getValue() > 1).toList().size());
     }
 
-    private void readInput(final boolean includeDiagonals, BufferedReader reader) throws IOException {
+    private void readInput(final boolean includeDiagonals, ArrayList<String> input) throws IOException {
         spots.clear();
-        String line;
-        while ((line = reader.readLine()) != null) {
+        for (String line : input) {
             final String[] coords = line.split(" -> ");
             final Integer[] begin = Arrays.stream(coords[0].split(",")).map(Integer::parseInt).toArray(Integer[]::new);
             final Integer[] end = Arrays.stream(coords[1].split(",")).map(Integer::parseInt).toArray(Integer[]::new);

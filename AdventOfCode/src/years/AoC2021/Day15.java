@@ -2,8 +2,8 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.PriorityQueue;
 
 public class Day15 implements Day {
@@ -12,11 +12,10 @@ public class Day15 implements Day {
     private int mapWidth;
     private int mapLength;
 
-    public void run(BufferedReader reader) throws IOException {
-        readInput(false, reader);
+    public void run(ArrayList<String> input) throws IOException {
+        readInput(false, input);
         System.out.println("Part 1: " + getShortestPath());
-        reader.reset();
-        readInput(true, reader);
+        readInput(true, input);
         System.out.println("Part 2: " + getShortestPath());
     }
 
@@ -49,15 +48,14 @@ public class Day15 implements Day {
         }
     }
 
-    private void readInput(final boolean part2, final BufferedReader reader) throws IOException {
-        reader.mark(1000000);
-        mapLength = (int) reader.lines().count();
-        reader.reset();
-        String line = reader.readLine();
+    private void readInput(final boolean part2, final ArrayList<String> input) throws IOException {
+        mapLength = input.size();
+        String line = input.get(0);
         mapWidth = line.length();
         if (part2) {
             map = new Spot[mapLength * 5][mapWidth * 5];
             for (int row = 0; row < mapLength; row++) {
+                line = input.get(row);
                 for (int col = 0; col < mapWidth; col++) {
                     for (int i = 0; i < 5; i++) {
                         for (int j = 0; j < 5; j++) {
@@ -67,17 +65,16 @@ public class Day15 implements Day {
                         }
                     }
                 }
-                line = reader.readLine();
             }
             mapWidth *= 5;
             mapLength *= 5;
         } else {
             map = new Spot[mapLength][mapWidth];
             for (int row = 0; row < mapLength; row++) {
+                line = input.get(row);
                 for (int col = 0; col < mapWidth; col++) {
                     map[row][col] = new Spot(row, col, Integer.parseInt(line.split("")[col]));
                 }
-                line = reader.readLine();
             }
         }
         map[0][0].score = 0;

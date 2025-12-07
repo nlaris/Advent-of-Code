@@ -1,16 +1,15 @@
 package years.AoC2025;
 
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import common.Day;
 
 public class Day3 implements Day {
   @Override
-  public void run(BufferedReader reader) throws IOException {
-    String line;
+  public void run(ArrayList<String> input) throws IOException {
     long part1Sum = 0, part2Sum = 0;
-    while ((line = reader.readLine()) != null) {
+    for (String line : input) {
       part1Sum += getJoltage(line, 2, "");
       part2Sum += getJoltage(line, 12, "");
     }

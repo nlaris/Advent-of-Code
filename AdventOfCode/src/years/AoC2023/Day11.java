@@ -2,7 +2,6 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -13,12 +12,11 @@ public class Day11 implements Day {
     private boolean[] galaxyColumns;
     private boolean[] galaxyRows;
 
-    public void run(BufferedReader reader) throws IOException {
-        String line = reader.readLine();
-        galaxyColumns = new boolean[line.length()];
-        galaxyRows = new boolean[line.length()];
+    public void run(ArrayList<String> input) throws IOException {
+        galaxyColumns = new boolean[input.get(0).length()];
+        galaxyRows = new boolean[input.get(0).length()];
         int row = 0;
-        while ((line = reader.readLine()) != null) {
+        for (String line : input) {
             int galaxyIndex = line.indexOf('#', 0);
             while (galaxyIndex >= 0) {
                 galaxies.add(new int[]{galaxyIndex, row});

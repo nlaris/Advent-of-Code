@@ -1,15 +1,14 @@
 package years.AoC2025;
 
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import common.Day;
 
 public class Day1 implements Day {
-  public void run(BufferedReader reader) throws IOException {
-    String line;
+  public void run(ArrayList<String> input) throws IOException {
     int currentNum = 50, part1Sum = 0, part2Sum = 0;
-    while ((line = reader.readLine()) != null) {
+    for (String line : input) {
       int rotation = Integer.parseInt(line.substring(1));
       boolean left = line.charAt(0) == 'L';
       currentNum += left ? -rotation : rotation;

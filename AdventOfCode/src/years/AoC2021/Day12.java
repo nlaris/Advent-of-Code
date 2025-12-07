@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,9 +10,8 @@ public class Day12 implements Day {
 
     private final HashMap<String, ArrayList<String>> mappings = new HashMap<>();
 
-    public void run(BufferedReader reader) throws IOException {
-        String line;
-        while ((line = reader.readLine()) != null) {
+    public void run(ArrayList<String> input) throws IOException {
+        for (String line : input) {
             final String[] points = line.split("-");
             addMapping(points[0], points[1]);
             addMapping(points[1], points[0]);

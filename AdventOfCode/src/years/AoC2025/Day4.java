@@ -1,6 +1,5 @@
 package years.AoC2025;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -9,20 +8,15 @@ import common.Day;
 public class Day4 implements Day {
   private int part1Sum = 0, part2Sum = 0;
   @Override
-  public void run(BufferedReader reader) throws IOException {
-    String line;
-    ArrayList<String> lines = new ArrayList<>();
-    while ((line = reader.readLine()) != null) {
-      lines.add(line);
-    }
-    for (int i = 0; i < lines.size(); i++) {
-      for (int j = 0; j < lines.get(i).length(); j++) {
-        checkSpot(lines, i, j, false);
+  public void run(ArrayList<String> input) throws IOException {
+    for (int i = 0; i < input.size(); i++) {
+      for (int j = 0; j < input.get(i).length(); j++) {
+        checkSpot(input, i, j, false);
       }
     }
-    for (int i = 0; i < lines.size(); i++) {
-      for (int j = 0; j < lines.get(i).length(); j++) {
-        checkSpot(lines, i, j, true);  
+    for (int i = 0; i < input.size(); i++) {
+      for (int j = 0; j < input.get(i).length(); j++) {
+        checkSpot(input, i, j, true);  
       }
     }
     System.out.println("Part 1: " + part1Sum);

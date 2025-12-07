@@ -21,13 +21,13 @@ public class Day12 implements Day {
     private final ArrayList<int[]> queue = new ArrayList<>();
     private int part1Sum = 0, part2Sum = 0;
 
-    public void run(BufferedReader reader) throws IOException {
-        lines = reader.lines().collect(Collectors.toCollection(ArrayList::new));
-        for (int r = 0; r < lines.size(); r++) {
-            String line = lines.get(r);
+    public void run(ArrayList<String> input) throws IOException {
+        lines = new ArrayList<>(input);
+        for (int r = 0; r < input.size(); r++) {
+            String line = input.get(r);
             for (int c = 0; c < line.length(); c++) {
                 if (!checked.contains(getKey(new int[]{c, r}))) {
-                    calculateRegionPrice(c, r);
+                    calculateRegionPrice(c, r, input);
                 }
             }
         }
@@ -35,7 +35,7 @@ public class Day12 implements Day {
         System.out.println("Part 2: " + part2Sum);
     }
 
-    private void calculateRegionPrice(int startCol, int startRow) {
+    private void calculateRegionPrice(int startCol, int startRow, ArrayList<String> input) {
         final ArrayList<int[]> fences = new ArrayList<>();
         char p = lines.get(startRow).charAt(startCol);
         queue.add(new int[]{startCol, startRow});

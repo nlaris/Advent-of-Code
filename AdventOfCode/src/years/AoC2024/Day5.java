@@ -2,7 +2,6 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,18 +13,23 @@ public class Day5 implements Day {
     private final ArrayList<int[]> rules = new ArrayList<>();
     private final ArrayList<ArrayList<Integer>> updates = new ArrayList<>();
 
-    public void run(BufferedReader reader) throws IOException {
-        String line;
-        while ((line = reader.readLine()) != null && !line.isEmpty()) {
+    public void run(ArrayList<String> input) throws IOException {
+        int i = 0;
+        while (i < input.size() && !input.get(i).isEmpty()) {
+            String line = input.get(i);
             String[] vals = line.split("\\|");
             rules.add(new int[]{Integer.parseInt(vals[0]), Integer.parseInt(vals[1])});
+            i++;
         }
-        while ((line = reader.readLine()) != null) {
+        i++;
+        while (i < input.size()) {
+            String line = input.get(i);
             String[] vals = line.split(",");
             updates.add(Arrays.stream(vals)
                     .mapToInt(Integer::parseInt)
                     .boxed()
                     .collect(Collectors.toCollection(ArrayList::new)));
+            i++;
         }
         int part1Sum = 0, part2Sum = 0;
         for (ArrayList<Integer> update : updates) {

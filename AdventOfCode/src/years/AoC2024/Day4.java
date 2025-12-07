@@ -2,7 +2,6 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,14 +20,11 @@ public class Day4 implements Day {
             {0, 1}
     };
 
-    public void run(BufferedReader reader) throws IOException {
-        String line;
+    public void run(ArrayList<String> input) throws IOException {
         int part1Sum = 0, part2Sum = 0;
-        while ((line = reader.readLine()) != null) {
-            map.add(line);
-        }
+        map.addAll(input);
         for (int r = 0; r < map.size(); r++) {
-            line = map.get(r);
+            String line = map.get(r);
             for (int c = 0; c < line.length(); c++) {
                 char s = line.charAt(c);
                 part1Sum += s == 'X' ? findPart1(c, r) : 0;

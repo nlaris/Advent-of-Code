@@ -2,8 +2,8 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,8 +11,8 @@ public class Day6 implements Day {
 
     private long[] spawns = new long[9];
 
-    public void run(BufferedReader reader) throws IOException {
-        List<Integer> initialSpawns = Arrays.stream(reader.readLine().split(","))
+    public void run(ArrayList<String> input) throws IOException {
+        List<Integer> initialSpawns = Arrays.stream(input.get(0).split(","))
                 .map(Integer::parseInt).toList();
         for (Integer spawn : initialSpawns) {
             spawns[spawn]++;

@@ -2,16 +2,16 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Day6 implements Day {
 
-    public void run(BufferedReader reader) throws IOException {
-        final String timeLine = reader.readLine().replaceAll("[^-?0-9]+", " ").trim();
-        final String distanceLine = reader.readLine().replaceAll("[^-?0-9]+", " ").trim();
+    public void run(ArrayList<String> input) throws IOException {
+        final String timeLine = input.get(0).replaceAll("[^-?0-9]+", " ").trim();
+        final String distanceLine = input.get(1).replaceAll("[^-?0-9]+", " ").trim();
         List<Integer> part1Times = Arrays.stream(timeLine.split(" ")).mapToInt(Integer::parseInt).boxed().toList();
         List<Integer> part1Distances = Arrays.stream(distanceLine.split(" ")).mapToInt(Integer::parseInt).boxed().toList();
         long part2Time = Long.parseLong(timeLine.replaceAll(" ", ""));

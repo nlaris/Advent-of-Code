@@ -2,7 +2,6 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -18,8 +17,8 @@ public class Day10 implements Day {
             {-1, 0}
     };
 
-    public void run(BufferedReader reader) throws IOException {
-        map = reader.lines()
+    public void run(ArrayList<String> input) throws IOException {
+        map = input.stream()
                 .map(line -> line.chars().map(Character::getNumericValue).toArray())
                 .collect(Collectors.toCollection(ArrayList::new));
         for (int r = 0; r < map.size(); r++) {

@@ -2,7 +2,6 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -10,11 +9,8 @@ public class Day3 implements Day {
 
     private final ArrayList<String> engine = new ArrayList<>();
 
-    public void run(BufferedReader reader) throws IOException {
-        String line;
-        while ((line = reader.readLine()) != null) {
-            engine.add(line);
-        }
+    public void run(ArrayList<String> input) throws IOException {
+        engine.addAll(input);
         System.out.println("Part 1: " + getEngineSum());
         System.out.println("Part 2: " + getGearRatioSum());
     }

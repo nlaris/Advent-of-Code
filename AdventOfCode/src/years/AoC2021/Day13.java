@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.*;
 
@@ -11,15 +10,20 @@ public class Day13 implements Day {
     private final HashMap<Integer, Set<Integer>> dots = new HashMap<>();
     private final ArrayList<String> folds = new ArrayList<>();
 
-    public void run(BufferedReader reader) throws IOException {
-        String line;
-        while (!(line = reader.readLine()).isEmpty()) {
+    public void run(ArrayList<String> input) throws IOException {
+        int i = 0;
+        while (!input.get(i).isEmpty()) {
+            String line = input.get(i);
             final int[] coordinates = Arrays.stream(line.split(",")).mapToInt(Integer::parseInt).toArray();
             dots.computeIfAbsent(coordinates[1], k -> new HashSet<>());
             dots.get(coordinates[1]).add(coordinates[0]);
+            i++;
         }
-        while ((line = reader.readLine()) != null) {
+        i++;
+        while (i < input.size()) {
+            String line = input.get(i);
             folds.add(line.split(" ")[2]);
+            i++;
         }
         boolean firstFold = true;
         for (String fold : folds) {

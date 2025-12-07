@@ -2,18 +2,17 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Day3 implements Day {
 
-    public void run(BufferedReader reader) throws IOException {
+    public void run(ArrayList<String> input) throws IOException {
         int part1Sum = 0, part2Sum = 0;
-        String line;
         boolean startEnabled = true;
-        while ((line = reader.readLine()) != null) {
+        for (String line : input) {
             part1Sum += getSum(line);
             line = (startEnabled ? "do()" : "don't()") + line;
             startEnabled = line.lastIndexOf("don't()") < line.lastIndexOf("do()");

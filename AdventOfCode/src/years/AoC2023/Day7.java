@@ -2,7 +2,6 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -30,9 +29,8 @@ public class Day7 implements Day {
     private static final int FOUR_OF_A_KIND_SCORE = 6;
     private static final int FIVE_OF_A_KIND_SCORE = 7;
 
-    public void run(BufferedReader reader) throws IOException {
-        String line;
-        while ((line = reader.readLine()) != null) {
+    public void run(ArrayList<String> input) throws IOException {
+        for (String line : input) {
             String[] hand = line.split(" ");
             hands.add(hand[0]);
             bids.put(hand[0], Long.parseLong(hand[1]));

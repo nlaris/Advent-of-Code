@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -30,9 +29,8 @@ public class Day8 implements Day {
         put(9, 'f');
     }};
 
-    public void run(BufferedReader reader) throws IOException {
-        String line;
-        while ((line = reader.readLine()) != null) {
+    public void run(ArrayList<String> input) throws IOException {
+        for (String line : input) {
             final String[] displays = line.split(" \\| ");
             numberInputs.add(displays[0]);
             numberOutputs.add(displays[1]);

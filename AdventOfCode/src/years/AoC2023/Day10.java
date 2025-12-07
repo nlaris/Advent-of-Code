@@ -2,7 +2,6 @@ package years.AoC2023;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,10 +23,9 @@ public class Day10 implements Day {
     private int[] currentCoords;
     private int furthestSpot;
 
-    public void run(BufferedReader reader) throws IOException {
-        String line;
+    public void run(ArrayList<String> input) throws IOException {
         int row = 0;
-        while ((line = reader.readLine()) != null) {
+        for (String line : input) {
             if (line.contains("S")) currentCoords = new int[]{line.indexOf('S'), row};
             map.add(line);
             row++;

@@ -2,7 +2,6 @@ package years.AoC2021;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,9 +12,8 @@ public class Day9 implements Day {
     private final ArrayList<String> checkedPoints = new ArrayList<>();
     private final ArrayList<Integer> biggestBasins = new ArrayList<>();
 
-    public void run(BufferedReader reader) throws IOException {
-        String line;
-        while ((line = reader.readLine()) != null) {
+    public void run(ArrayList<String> input) throws IOException {
+        for (String line : input) {
             points.add(Arrays.stream(line.split("")).mapToInt(Integer::parseInt).toArray());
         }
         int totalRiskLevels = 0;

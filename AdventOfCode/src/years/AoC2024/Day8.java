@@ -2,7 +2,6 @@ package years.AoC2024;
 
 import common.Day;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,10 +11,9 @@ public class Day8 implements Day {
     private final HashMap<Character, ArrayList<int[]>> mappings = new HashMap<>();
     int width, height;
 
-    public void run(BufferedReader reader) throws IOException {
-        String line;
+    public void run(ArrayList<String> input) throws IOException {
         int r = 0;
-        while ((line = reader.readLine()) != null) {
+        for (String line : input) {
             width = line.length();
             for (int c = 0; c < line.length(); c++) {
                 if (line.charAt(c) != '.') {
